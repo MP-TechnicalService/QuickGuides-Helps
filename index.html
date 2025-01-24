@@ -106,6 +106,14 @@
         .sub-index .sub-item:hover {
             opacity: 0.9;
         }
+mark {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
     </style>
     <script>
         function toggleSubIndex(element) {
@@ -120,6 +128,8 @@
 <body>
     <div class="container">
         <h1>QUICK GUIDES & HELPS</h1>
+<input type="text" id="searchInput" placeholder="Search for a guide..." style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+
         
         <div class="index-item english" onclick="toggleSubIndex(this)">
             <span>English</span>
@@ -233,12 +243,12 @@
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYHKfzH65BVPkVv183tYQ04BEmDy4LJTicnjlwuwwGvm1A?e=DyWfvg" target="_blank">
-                        GRELecoGO_Sust_ALIM1_ALIM2_EN
+                        GRELecoGO_Sust_ALIM1_ALIM2
                     </a>
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWfNOXEFxZRPrKFxp67OUZsBJwJKdcIHRfn4WKTQTie1CQ?e=Ae2CI3" target="_blank">
-                       GRSSP-TD_HEAD_001_EN-FR-ES
+                       GRSSP-TD_HEAD_001
                     </a>
                 </div>
 <div class="sub-item third-level y-prefix">
@@ -438,7 +448,7 @@
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ee1JlTAhTGFAqy26ZbzcP7YBb11s4gX42dgaIHbrpa47VA?e=hAq5bM" target="_blank">
-                        GRSSP-TD_HEAD_001_EN-FR
+                        GRSSP-TD_HEAD_001
                     </a>
                 </div>
 <div class="sub-item third-level r-prefix">
@@ -575,7 +585,7 @@
 
                 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaAh2yN7_OxIoRgMDSwtNiIB-Ox6Waqc-nrZBCIF_s0-CA?e=YjcAAU" target="_blank">
-                        GR000 ecoGO reglage de l'alimentation V00 FR
+                        GR000 ecoGO reglage de l'alimentation V00
                     </a>
                 </div>
 <div class="sub-item third-level">
@@ -585,22 +595,22 @@
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZwCMlxJKydMvugWcTAOZFMBRpypp7lqDO5h-Gfh5773LQ?e=eDDArk" target="_blank">
-                        GR002 TFT Editor ecoGO V00 FR
+                        GR002 TFT Editor ecoGO V00
                     </a>
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EflutAejI2tDqo-89eJya9UBInnTe9WFRiWBX3DHfvmkKg?e=3t21J4" target="_blank">
-                        GR005 Resistances terminasion V01 FR
+                        GR005 Resistances terminasion V01
                     </a>
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbDOY_8ccHRKtsL5PR_c9IIB4nD97M7Rf9eJlsQxsSBFtw?e=yzRb3Q" target="_blank">
-                        GRELecoGO_Sust_ALIM1_ALIM2_FR
+                        GRELecoGO_Sust_ALIM1_ALIM2
                     </a>
                 </div>
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfA5Wj1VhFpKjViMgLlcozgBvREVD4cNhLhdjdJaVO3yHg?e=SeMx8d" target="_blank">
-                        GRSSP-TD_HEAD_001_EN-FR-ES
+                        GRSSP-TD_HEAD_001
                     </a>
                 </div>
             </div>
@@ -625,5 +635,123 @@
         </div>
 
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Guardar el contenido HTML original de los terceros subíndices
+        document.querySelectorAll('.third-level').forEach(item => {
+            item.setAttribute('data-original', item.innerHTML);
+        });
+
+        // Evento para manejar la búsqueda
+        document.getElementById('searchInput').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const guides = document.querySelectorAll('.third-level');
+            const subItems = document.querySelectorAll('.sub-item');
+            const subIndices = document.querySelectorAll('.sub-index');
+
+           if (filter.length < 2) {
+    guides.forEach(guide => {
+        guide.style.display = 'none';
+        guide.innerHTML = guide.getAttribute('data-original');
+    });
+    subIndices.forEach(subIndex => subIndex.style.display = 'none');
+    subItems.forEach(subItem => {
+        subItem.style.display = 'block'; // Asegúrate de mostrar los sub-items inicialmente
+        subItem.classList.remove('open');
+    });
+    document.querySelectorAll('.index-item').forEach(indexItem => {
+        indexItem.style.display = 'flex';
+        indexItem.classList.remove('open'); // Cierra los índices principales
+    });
+    return;
+}
+
+            // Función para resaltar texto coincidente sin alterar enlaces
+            const highlightText = (element, query) => {
+                const originalHTML = element.getAttribute('data-original');
+                const tempElement = document.createElement('div');
+                tempElement.innerHTML = originalHTML;
+
+                const walk = (node) => {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        const text = node.nodeValue;
+                        const regex = new RegExp(`(${query})`, 'gi');
+                        const highlightedText = text.replace(regex, '<mark>$1</mark>');
+                        const wrapper = document.createElement('span');
+                        wrapper.innerHTML = highlightedText;
+                        node.replaceWith(wrapper);
+                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                        Array.from(node.childNodes).forEach(walk);
+                    }
+                };
+
+                Array.from(tempElement.childNodes).forEach(walk);
+                element.innerHTML = tempElement.innerHTML;
+            };
+
+            // Filtrar y resaltar los terceros subíndices
+            let hasMatches = false; // Variable para saber si hay coincidencias
+            guides.forEach(guide => {
+                const text = guide.textContent.toLowerCase();
+                if (text.includes(filter)) {
+                    guide.style.display = 'block';
+                    highlightText(guide, filter);
+                    hasMatches = true; // Hay coincidencia
+                } else {
+                    guide.style.display = 'none';
+                    guide.innerHTML = guide.getAttribute('data-original');
+                }
+            });
+
+            // Mostrar solo los sub-items que contienen guías coincidentes
+            subItems.forEach(subItem => {
+                const subIndex = subItem.nextElementSibling;
+                if (subIndex && subIndex.classList.contains('sub-index')) {
+                    const hasVisibleGuides = Array.from(subIndex.querySelectorAll('.third-level')).some(
+                        guide => guide.style.display === 'block'
+                    );
+                    if (hasVisibleGuides) {
+                        subItem.style.display = 'block';
+                        subIndex.style.display = 'block';
+                    } else {
+                        subItem.style.display = 'none';
+                        subIndex.style.display = 'none';
+                    }
+                }
+            });
+
+            // Mantener visibles los índices principales (banderas)
+            document.querySelectorAll('.index-item').forEach(indexItem => {
+                const nextElement = indexItem.nextElementSibling;
+                if (nextElement && nextElement.classList.contains('sub-index')) {
+                    const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item')).some(
+                        subItem => subItem.style.display === 'block'
+                    );
+                    if (hasVisibleSubItems) {
+                        indexItem.style.display = 'flex';
+                        indexItem.classList.add('open');
+                        nextElement.style.display = 'block';
+                    } else {
+                        indexItem.style.display = 'flex';
+                        indexItem.classList.remove('open');
+                        nextElement.style.display = 'none';
+                    }
+                }
+            });
+        });
+
+        // Hacer que los clics en los terceros subíndices abran el enlace correspondiente
+        document.querySelectorAll('.third-level a').forEach(link => {
+            link.parentElement.addEventListener('click', (event) => {
+                event.stopPropagation(); // Evita interferencias con eventos de los padres
+                window.open(link.href, '_blank');
+            });
+        });
+    });
+</script>
+
+
+
+
 </body>
 </html>
