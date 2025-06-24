@@ -21,6 +21,9 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 680px; /* Ancho ajustado */
             margin-top: 20px;
+            /* AÑADIDO: altura ampliada y scroll vertical */
+            height: 80vh;
+            overflow-y: auto;
         }
         h1 {
             color: #004080;
@@ -51,11 +54,15 @@
         .index-item img.uk-flag {
             height: 16px; /* Altura ajustada para la bandera del Reino Unido */
         }
+        .index-item img.de-flag {
+            height: 20px; /* Altura para la bandera de Alemania */
+            width: auto;
+        }
         .index-item:hover {
             opacity: 0.9;
         }
         /* Estilo azul uniforme para todas las secciones */
-        .english, .spanish, .french {
+        .english, .spanish, .french, .german {
             background-color: #1e90ff; /* Azul para todas las secciones */
         }
         
@@ -82,16 +89,16 @@
         }
         .sub-index .third-level.r-prefix {
             background-color: #ff9999; /* Rojo suave para H prefijo */
-}
+        }
         .sub-index .third-level.y-prefix {
             background-color: #feff77; /* Amarillo para V prefijo */
         }
-.sub-index .third-level.ys-prefix {
+        .sub-index .third-level.ys-prefix {
             background-color: #fffd22; /* Amarillo para V prefijo */
         }
         .sub-index .third-level.gs-prefix {
-	background-color: #02ff44; /* Verde fuerte para (nuevo), (new), (nouvelle) */
-	}
+            background-color: #02ff44; /* Verde fuerte para (nuevo), (new), (nouvelle) */
+        }
         .sub-index .third-level.rs-prefix {
             background-color: #ff4d4d; /* Rojo o verde fuerte para (nuevo), (new), (nouvelle) */
         }
@@ -106,14 +113,13 @@
         .sub-index .sub-item:hover {
             opacity: 0.9;
         }
-mark {
-    background-color: yellow;
-    color: black;
-    font-weight: bold;
-    padding: 0 2px;
-    border-radius: 3px;
-}
-
+        mark {
+            background-color: yellow;
+            color: black;
+            font-weight: bold;
+            padding: 0 2px;
+            border-radius: 3px;
+        }
     </style>
     <script>
         function toggleSubIndex(element) {
@@ -128,9 +134,8 @@ mark {
 <body>
     <div class="container">
         <h1>QUICK GUIDES & HELPS</h1>
-<input type="text" id="searchInput" placeholder="Search for a guide..." style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="text" id="searchInput" placeholder="Search for a guide..." style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
 
-        
         <div class="index-item english" onclick="toggleSubIndex(this)">
             <span>English</span>
             <img class="uk-flag" src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="Bandera de Reino Unido">
@@ -198,7 +203,7 @@ mark {
                 </div>
 <div class="sub-item third-level gs-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERKAHZvr8fxIiMMcoHBAX3MBRZTmlGxZA3btJlyK69VemQ?e=1v3Bwz" target="_blank">
-                        GR001 Additional magnets for ecoGO positioning system V06
+                        GR001 Additional magnets for ecoGO positioning system V06 (New)
                     </a>
                 </div>
 			<div class="sub-item third-level">
@@ -431,7 +436,7 @@ mark {
                 </div>
 <div class="sub-item third-level gs-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdM3YcwejLNHoayQAEDz81QBSGBWerxHl-pnuf8edNa48g?e=kzNWUg" target="_blank">
-                       GR001 Imanes adicionales del sistema de posicionamiento ecoGO V06
+                       GR001 Imanes adicionales del sistema de posicionamiento ecoGO V06 (Nuevo)
                     </a>
                 </div>
 		<div class="sub-item third-level">
@@ -616,7 +621,7 @@ mark {
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c3/Flag_of_France.svg/30px-Flag_of_France.svg.png" alt="Bandera de Francia">
         </div>
         <div class="sub-index">
-<div class="sub-item" onclick="toggleSubIndex(this)">Portes</div>
+            <div class="sub-item" onclick="toggleSubIndex(this)">Portes</div>
 	<div class="sub-index">
                 <div class="sub-item third-level gs-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9SUnhO_NNGlwh2jnb4TpEBsISwqi1gvfTR0X0r6NJxIA?e=gJOpWY" target="_blank">
@@ -673,7 +678,7 @@ mark {
                 </div>
 <div class="sub-item third-level gs-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcuxTUufWVtGvsiElN24wwEB7fdcpImLcbz5_-74VdVpOA?e=5FAzL5" target="_blank">
-                        GR001 Aimants supplémentaires du système de positionnement ecoGO V06
+                        GR001 Aimants supplémentaires du système de positionnement ecoGO V06 (Nouvelle)
                     </a>
                 </div>
 	<div class="sub-item third-level">
@@ -727,7 +732,7 @@ mark {
 <div class="sub-item" onclick="toggleSubIndex(this)">Autres</div>
 	<div class="sub-index">
                 <div class="sub-item third-level rs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQOxWxQUiHtIs3YcMkww0nkBca9z_-t6x8pZKERWbYV5kg?e=vw58jb" target="_blank">
+                   <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQOxWxQUiHtIs3YcMkww0nkBca9z_-t6x8pZKERWbYV5kg?e=vw58jb" target="_blank">
                         H004 Demande de bon V00 (Nouvelle)
                     </a>
                 </div>
@@ -735,124 +740,135 @@ mark {
 
         </div>
 
+        <div class="index-item german" onclick="toggleSubIndex(this)">
+            <span>Deutsch</span>
+            <img class="de-flag" src="https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg" alt="Bandera de Alemania">
+        </div>
+        <div class="sub-index">
+            <div class="sub-item" onclick="toggleSubIndex(this)">EcoGo</div>
+	<div class="sub-index">
+                <div class="sub-item third-level gs-prefix">
+                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYLctE66AVtOiRCGkgyO3SoBJokATP4nU9l14Un_Lds6bQ?e=HRfJko" target="_blank">
+                        GR001 Zusätzliche magnete des EcoGO ortugssystems V06 (Neu)
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Guardar el contenido HTML original de los terceros subíndices
-        document.querySelectorAll('.third-level').forEach(item => {
-            item.setAttribute('data-original', item.innerHTML);
-        });
 
-        // Evento para manejar la búsqueda
-        document.getElementById('searchInput').addEventListener('input', function () {
-            const filter = this.value.toLowerCase();
-            const guides = document.querySelectorAll('.third-level');
-            const subItems = document.querySelectorAll('.sub-item');
-            const subIndices = document.querySelectorAll('.sub-index');
-
-           if (filter.length < 2) {
-    guides.forEach(guide => {
-        guide.style.display = 'none';
-        guide.innerHTML = guide.getAttribute('data-original');
-    });
-    subIndices.forEach(subIndex => subIndex.style.display = 'none');
-    subItems.forEach(subItem => {
-        subItem.style.display = 'block'; // Asegúrate de mostrar los sub-items inicialmente
-        subItem.classList.remove('open');
-    });
-    document.querySelectorAll('.index-item').forEach(indexItem => {
-        indexItem.style.display = 'flex';
-        indexItem.classList.remove('open'); // Cierra los índices principales
-    });
-    return;
-}
-
-            // Función para resaltar texto coincidente sin alterar enlaces
-            const highlightText = (element, query) => {
-                const originalHTML = element.getAttribute('data-original');
-                const tempElement = document.createElement('div');
-                tempElement.innerHTML = originalHTML;
-
-                const walk = (node) => {
-                    if (node.nodeType === Node.TEXT_NODE) {
-                        const text = node.nodeValue;
-                        const regex = new RegExp(`(${query})`, 'gi');
-                        const highlightedText = text.replace(regex, '<mark>$1</mark>');
-                        const wrapper = document.createElement('span');
-                        wrapper.innerHTML = highlightedText;
-                        node.replaceWith(wrapper);
-                    } else if (node.nodeType === Node.ELEMENT_NODE) {
-                        Array.from(node.childNodes).forEach(walk);
-                    }
-                };
-
-                Array.from(tempElement.childNodes).forEach(walk);
-                element.innerHTML = tempElement.innerHTML;
-            };
-
-            // Filtrar y resaltar los terceros subíndices
-            let hasMatches = false; // Variable para saber si hay coincidencias
-            guides.forEach(guide => {
-                const text = guide.textContent.toLowerCase();
-                if (text.includes(filter)) {
-                    guide.style.display = 'block';
-                    highlightText(guide, filter);
-                    hasMatches = true; // Hay coincidencia
-                } else {
-                    guide.style.display = 'none';
-                    guide.innerHTML = guide.getAttribute('data-original');
-                }
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Guardar el contenido HTML original de los terceros subíndices
+            document.querySelectorAll('.third-level').forEach(item => {
+                item.setAttribute('data-original', item.innerHTML);
             });
 
-            // Mostrar solo los sub-items que contienen guías coincidentes
-            subItems.forEach(subItem => {
-                const subIndex = subItem.nextElementSibling;
-                if (subIndex && subIndex.classList.contains('sub-index')) {
-                    const hasVisibleGuides = Array.from(subIndex.querySelectorAll('.third-level')).some(
-                        guide => guide.style.display === 'block'
-                    );
-                    if (hasVisibleGuides) {
+            // Evento para manejar la búsqueda
+            document.getElementById('searchInput').addEventListener('input', function () {
+                const filter = this.value.toLowerCase();
+                const guides = document.querySelectorAll('.third-level');
+                const subItems = document.querySelectorAll('.sub-item');
+                const subIndices = document.querySelectorAll('.sub-index');
+
+                if (filter.length < 2) {
+                    guides.forEach(guide => {
+                        guide.style.display = 'none';
+                        guide.innerHTML = guide.getAttribute('data-original');
+                    });
+                    subIndices.forEach(subIndex => subIndex.style.display = 'none');
+                    subItems.forEach(subItem => {
                         subItem.style.display = 'block';
-                        subIndex.style.display = 'block';
-                    } else {
-                        subItem.style.display = 'none';
-                        subIndex.style.display = 'none';
-                    }
-                }
-            });
-
-            // Mantener visibles los índices principales (banderas)
-            document.querySelectorAll('.index-item').forEach(indexItem => {
-                const nextElement = indexItem.nextElementSibling;
-                if (nextElement && nextElement.classList.contains('sub-index')) {
-                    const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item')).some(
-                        subItem => subItem.style.display === 'block'
-                    );
-                    if (hasVisibleSubItems) {
-                        indexItem.style.display = 'flex';
-                        indexItem.classList.add('open');
-                        nextElement.style.display = 'block';
-                    } else {
+                        subItem.classList.remove('open');
+                    });
+                    document.querySelectorAll('.index-item').forEach(indexItem => {
                         indexItem.style.display = 'flex';
                         indexItem.classList.remove('open');
-                        nextElement.style.display = 'none';
-                    }
+                    });
+                    return;
                 }
+
+                // Función para resaltar texto coincidente sin alterar enlaces
+                const highlightText = (element, query) => {
+                    const originalHTML = element.getAttribute('data-original');
+                    const tempElement = document.createElement('div');
+                    tempElement.innerHTML = originalHTML;
+
+                    const walk = (node) => {
+                        if (node.nodeType === Node.TEXT_NODE) {
+                            const text = node.nodeValue;
+                            const regex = new RegExp(`(${query})`, 'gi');
+                            const highlightedText = text.replace(regex, '<mark>$1</mark>');
+                            const wrapper = document.createElement('span');
+                            wrapper.innerHTML = highlightedText;
+                            node.replaceWith(wrapper);
+                        } else if (node.nodeType === Node.ELEMENT_NODE) {
+                            Array.from(node.childNodes).forEach(walk);
+                        }
+                    };
+
+                    Array.from(tempElement.childNodes).forEach(walk);
+                    element.innerHTML = tempElement.innerHTML;
+                };
+
+                // Filtrar y resaltar los terceros subíndices
+                guides.forEach(guide => {
+                    const text = guide.textContent.toLowerCase();
+                    if (text.includes(filter)) {
+                        guide.style.display = 'block';
+                        highlightText(guide, filter);
+                    } else {
+                        guide.style.display = 'none';
+                        guide.innerHTML = guide.getAttribute('data-original');
+                    }
+                });
+
+                // Mostrar solo los sub-items que contienen guías coincidentes
+                subItems.forEach(subItem => {
+                    const subIndex = subItem.nextElementSibling;
+                    if (subIndex && subIndex.classList.contains('sub-index')) {
+                        const hasVisibleGuides = Array.from(subIndex.querySelectorAll('.third-level')).some(
+                            guide => guide.style.display === 'block'
+                        );
+                        if (hasVisibleGuides) {
+                            subItem.style.display = 'block';
+                            subIndex.style.display = 'block';
+                        } else {
+                            subItem.style.display = 'none';
+                            subIndex.style.display = 'none';
+                        }
+                    }
+                });
+
+                // Mantener visibles los índices principales (banderas)
+                document.querySelectorAll('.index-item').forEach(indexItem => {
+                    const nextElement = indexItem.nextElementSibling;
+                    if (nextElement && nextElement.classList.contains('sub-index')) {
+                        const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item')).some(
+                            subItem => subItem.style.display === 'block'
+                        );
+                        if (hasVisibleSubItems) {
+                            indexItem.style.display = 'flex';
+                            indexItem.classList.add('open');
+                            nextElement.style.display = 'block';
+                        } else {
+                            indexItem.style.display = 'flex';
+                            indexItem.classList.remove('open');
+                            nextElement.style.display = 'none';
+                        }
+                    }
+                });
+            });
+
+            // Hacer que los clics en los terceros subíndices abran el enlace correspondiente
+            document.querySelectorAll('.third-level a').forEach(link => {
+                link.parentElement.addEventListener('click', (event) => {
+                    event.stopPropagation(); // Evita interferencias con eventos de los padres
+                    window.open(link.href, '_blank');
+                });
             });
         });
-
-        // Hacer que los clics en los terceros subíndices abran el enlace correspondiente
-        document.querySelectorAll('.third-level a').forEach(link => {
-            link.parentElement.addEventListener('click', (event) => {
-                event.stopPropagation(); // Evita interferencias con eventos de los padres
-                window.open(link.href, '_blank');
-            });
-        });
-    });
-</script>
-
-
-
-
+    </script>
 </body>
 </html>
