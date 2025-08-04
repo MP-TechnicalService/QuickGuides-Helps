@@ -34,11 +34,24 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-.title-icon {
-  height: 24px;
+.container {
+  position: relative;        /* contexto para logo absoluto */
+  padding: 40px 30px 20px;   /* espacio interior */
+}
+
+.logo-abs {
+  position: absolute;
+  top: 35px;      /* baja más el logo */
+  left: 35px;     /* distancia al borde izquierdo */
+  height: 56px;   /* tamaño mayor */
   width: auto;
-  margin-right: 10px;
-  vertical-align: middle;
+}
+
+.container h1 {
+  margin: 0;                 /* borra márgenes por defecto */
+  padding-top: 10px;         /* ajusta la altura del título */
+  margin-bottom: 30px;       /* separa el título del buscador */
+  text-align: center;        /* mantiene el texto centrado */
 }
 
         .index-item {
@@ -141,7 +154,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>QUICK GUIDES & HELPS</h1>
+       <div class="header">
+  <img src="img/LogoMP.png" alt="Logo MP" class="logo-abs" />
+  <h1>Quick Guides & Helps</h1>
+</div>
+
         <input type="text" id="searchInput" placeholder="Search for a guide..." style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
 
         <div class="index-item english" onclick="toggleSubIndex(this)">
@@ -179,44 +196,39 @@
                         GR023 Duplex telephony configuration - Sigma registration ecoGO V00 (New)
                     </a>
                 </div>
-		    <div class="sub-item third-level gs-prefix">
+		    <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERqDdgGLh3JLiK3WPEjoG68BnyBP28moHQgwpqWQ_7fxbg?e=lm6iP3" target="_blank">
-                        GR022 LOB board configuration V00 (New)
+                        GR022 LOB board configuration V00
                     </a>
                 </div>
-			<div class="sub-item third-level gs-prefix">
+			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01 (New)
+                        GR021 Selcom Midi Supra V2 ecoGO V01
                     </a>
                 </div>
-			<div class="sub-item third-level gs-prefix">
+			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00 (New)
+                        GR020 Fermator VF7 Relay ecoGO V00
                     </a>
                 </div>
-			<div class="sub-item third-level gs-prefix">
+			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00 (New)
+                        GR019 Fermator VF7+ Relay ecoGO V00
                     </a>
                 </div>
-			<div class="sub-item third-level gs-prefix">
+			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
-                        GR018 Fermator VF7 ecoGO V00 (New)
+                        GR018 Fermator VF7 ecoGO V00
                     </a>
                 </div>
-			<div class="sub-item third-level gs-prefix">
+			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
-                        GR017 Fermator VF5+ ecoGO V00 (New)
+                        GR017 Fermator VF5+ ecoGO V00
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
-                        GR016 Fermator ECC ecoGO V00 (New)
-                    </a>
-                </div>
-<div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERKAHZvr8fxIiMMcoHBAX3MBRZTmlGxZA3btJlyK69VemQ?e=1v3Bwz" target="_blank">
-                        GR001 Additional magnets for ecoGO positioning system V06 (New)
+                        GR016 Fermator ECC ecoGO V00
                     </a>
                 </div>
 			<div class="sub-item third-level">
@@ -272,6 +284,11 @@
 			<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EalFgZJaljBIqVbS7W6Bv0sBy6zLm45yhefcj88m_9C8mA?e=2xq7xG" target="_blank">
                         GR002 TFT Editor ecoGO V00
+                    </a>
+                </div>
+<div class="sub-item third-level">
+                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERKAHZvr8fxIiMMcoHBAX3MBRZTmlGxZA3btJlyK69VemQ?e=1v3Bwz" target="_blank">
+                        GR001 Additional magnets for ecoGO positioning system V06
                     </a>
                 </div>
 						<div class="sub-item third-level">
@@ -387,9 +404,9 @@
             </div>
 	<div class="sub-item" onclick="toggleSubIndex(this)">Others</div>
 <div class="sub-index">
-                <div class="sub-item third-level rs-prefix">
+                <div class="sub-item third-level r-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ1LwyhrSwZNvOh5WJX-3eQBDbBO20r_OJ3--a9Nroj1pg?e=RxjlMf" target="_blank">
-                        H004 Voucher request V00 (New)
+                        H004 Voucher request V00
                     </a>
                 </div>
             </div>
@@ -432,44 +449,39 @@
                         GR023 Configuración telefonía duplex - alta Sigma EcoGO V00 (Nuevo)
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ5rXyloNrtIntDkUJ9mJSsBB7W1p7sTurZ5YyQtNTH-pg?e=64y3wB" target="_blank">
-                        GR022 Configuración placa LOB V00 (Nuevo)
+                        GR022 Configuración placa LOB V00
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01 (Nuevo)
+                        GR021 Selcom Midi Supra V2 ecoGO V01
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00 (Nuevo)
+                        GR020 Fermator VF7 Relay ecoGO V00
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00 (Nuevo)
+                        GR019 Fermator VF7+ Relay ecoGO V00
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
                         GR018 Fermator VF7 ecoGO V00 (Nuevo)
                     </a>
                 </div>
-		<div class="sub-item third-level gs-prefix">
+		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
                         GR017 Fermator VF5+ ecoGO V00 (Nuevo)
                     </a>
                 </div>
-<div class="sub-item third-level gs-prefix">
+<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
                          GR016 Fermator ECC ecoGO V00 (Nuevo)
-                    </a>
-                </div>
-<div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdM3YcwejLNHoayQAEDz81QBSGBWerxHl-pnuf8edNa48g?e=kzNWUg" target="_blank">
-                       GR001 Imanes adicionales del sistema de posicionamiento ecoGO V06 (Nuevo)
                     </a>
                 </div>
 		<div class="sub-item third-level">
@@ -525,6 +537,11 @@
 		<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYEvOi7lQQdDi2nzNttWGF4BshPABfh_W-P-5hG8MROEdw?e=HDXMnE" target="_blank">
                         GR002 TFT Editor ecoGO V00
+                    </a>
+                </div>
+<div class="sub-item third-level">
+                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdM3YcwejLNHoayQAEDz81QBSGBWerxHl-pnuf8edNa48g?e=kzNWUg" target="_blank">
+                       GR001 Imanes adicionales del sistema de posicionamiento ecoGO V06
                     </a>
                 </div>
 				<div class="sub-item third-level">
@@ -640,9 +657,9 @@
             </div>
  <div class="sub-item" onclick="toggleSubIndex(this)">Otros</div>
 <div class="sub-index">
-                <div class="sub-item third-level rs-prefix">
+                <div class="sub-item third-level r-prefix">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQlY3dTeLeZJii1ocquzyGIBwBn_8iC-1MBSzisl7h5WlA?e=OurcUh" target="_blank">
-                        H004 Peticion de Bono V00 (Nuevo)
+                        H004 Peticion de Bono V00
                     </a>
                 </div>
             </div>
@@ -679,44 +696,39 @@
                         GR023 Configuration téléphonique duplex - Enregistrement Sigma S4L ecoGO V00 (Nouvelle)
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXn-HxIs82NAmoJFHsJNRS4Bioc4ZzNh8Ya7Rbzd_CV8og?e=34rv4M" target="_blank">
-                        GR022 Configuration de la carte LOB V00 (Nouvelle)
+                        GR022 Configuration de la carte LOB V00
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01 (Nouvelle)
+                        GR021 Selcom Midi Supra V2 ecoGO V01
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00 (Nouvelle)
+                        GR020 Fermator VF7 Relay ecoGO V00
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00 (Nouvelle)
+                        GR019 Fermator VF7+ Relay ecoGO V00
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
-                        GR018 Fermator VF7 ecoGO V00 (Nouvelle)
+                        GR018 Fermator VF7 ecoGO V00
                     </a>
                 </div>
-	<div class="sub-item third-level gs-prefix">
+	<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
-                        GR017 Fermator VF5+ ecoGO V00 (Nouvelle)
+                        GR017 Fermator VF5+ ecoGO V00
                     </a>
                 </div>
-<div class="sub-item third-level gs-prefix">
+<div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
-                         GR016 Fermator ECC ecoGO V00 (Nouvelle)
-                    </a>
-                </div>
-<div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcuxTUufWVtGvsiElN24wwEB7fdcpImLcbz5_-74VdVpOA?e=5FAzL5" target="_blank">
-                        GR001 Aimants supplémentaires du système de positionnement ecoGO V06 (Nouvelle)
+                         GR016 Fermator ECC ecoGO V00
                     </a>
                 </div>
 	<div class="sub-item third-level">
@@ -727,6 +739,11 @@
 <div class="sub-item third-level">
                     <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZwCMlxJKydMvugWcTAOZFMBRpypp7lqDO5h-Gfh5773LQ?e=eDDArk" target="_blank">
                         GR002 TFT Editor ecoGO V00
+                    </a>
+                </div>
+<div class="sub-item third-level">
+                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcuxTUufWVtGvsiElN24wwEB7fdcpImLcbz5_-74VdVpOA?e=5FAzL5" target="_blank">
+                        GR001 Aimants supplémentaires du système de positionnement ecoGO V06
                     </a>
                 </div>
 	<div class="sub-item third-level">
@@ -797,9 +814,9 @@
             </div>
 <div class="sub-item" onclick="toggleSubIndex(this)">Autres</div>
 	<div class="sub-index">
-                <div class="sub-item third-level rs-prefix">
+                <div class="sub-item third-level r-prefix">
                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQOxWxQUiHtIs3YcMkww0nkBca9z_-t6x8pZKERWbYV5kg?e=vw58jb" target="_blank">
-                        H004 Demande de bon V00 (Nouvelle)
+                        H004 Demande de bon V00
                     </a>
                 </div>
             </div>
