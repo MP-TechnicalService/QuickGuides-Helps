@@ -68,15 +68,11 @@
             align-items: center;
         }
         .index-item img {
-            height: 20px; /* Tamaño predeterminado para todas las banderas */
-            width: auto;
-        }
-        .index-item img.uk-flag {
-            height: 16px; /* Altura ajustada para la bandera del Reino Unido */
-        }
-        .index-item img.de-flag {
-            height: 20px; /* Altura para la bandera de Alemania */
-            width: auto;
+            width: 35px;
+            height: 25px;
+            object-fit: cover;
+            border-radius: 3px; /* Esto le da un borde ligeramente redondeado muy elegante */
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sombrita suave para que destaquen */
         }
         .index-item:hover {
             opacity: 0.9;
