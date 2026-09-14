@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>QUICK GUIDES & HELPS</title>
+    <link rel="shortcut icon" href="img/LogoMP.png" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #d0e7ff, #b3d1ff, #e6f2ff); /* Textura suave en azul claro */
+            background: linear-gradient(135deg, #d0e7ff, #b3d1ff, #e6f2ff);
             display: flex;
             justify-content: center;
             align-items: flex-start;
@@ -14,45 +16,38 @@
             margin: 0;
             color: #333;
         }
+
         .container {
             background-color: #ffffff;
-            padding: 30px;
+            padding: 40px 30px 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 680px; /* Ancho ajustado */
+            width: 680px;
             margin-top: 20px;
-            /* AÑADIDO: altura ampliada y scroll vertical */
             height: 80vh;
             overflow-y: auto;
+            position: relative;
         }
-        h1 {
+
+        .logo-abs {
+            position: absolute;
+            top: 35px;
+            left: 35px;
+            height: 56px;
+            width: auto;
+        }
+
+        .container h1 {
             color: #8B0000;
             font-size: 24px;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 0;
+            padding-top: 10px;
+            margin-bottom: 30px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-.container {
-  position: relative;        /* contexto para logo absoluto */
-  padding: 40px 30px 20px;   /* espacio interior */
-}
-
-.logo-abs {
-  position: absolute;
-  top: 35px;      /* baja más el logo */
-  left: 35px;     /* distancia al borde izquierdo */
-  height: 56px;   /* tamaño mayor */
-  width: auto;
-}
-
-.container h1 {
-  margin: 0;                 /* borra márgenes por defecto */
-  padding-top: 10px;         /* ajusta la altura del título */
-  margin-bottom: 30px;       /* separa el título del buscador */
-  text-align: center;        /* mantiene el texto centrado */
-}
 
         .index-item {
             font-size: 18px;
@@ -64,72 +59,97 @@
             padding: 10px;
             border-radius: 5px;
             display: flex;
-            justify-content: space-between; /* Alinea texto e imagen */
+            justify-content: space-between;
             align-items: center;
         }
+
         .index-item img {
             width: 35px;
             height: 25px;
             object-fit: cover;
-            border-radius: 3px; /* Esto le da un borde ligeramente redondeado muy elegante */
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2); /* Sombrita suave para que destaquen */
+            border-radius: 3px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
+
         .index-item:hover {
             opacity: 0.9;
         }
-        /* Estilo azul uniforme para todas las secciones */
-        .english, .spanish, .french, .german {
-        background-color: #e0e0e0; /* Gris claro */
-        color: #333333;            /* Texto negro */
+
+        .english,
+        .spanish,
+        .french,
+        .german {
+            background-color: #e0e0e0;
+            color: #333333;
         }
-        
+
         .sub-index {
             display: none;
             font-size: 16px;
             text-align: left;
             margin-left: 20px;
         }
-        .index-item.open + .sub-index {
+
+        .index-item.open+.sub-index {
             display: block;
         }
+
         .sub-index .sub-item {
-            background-color: #b0c4de; /* Color uniforme para subíndices */
+            background-color: #b0c4de;
             color: #333;
             margin: 8px 0;
             cursor: pointer;
             padding: 8px;
             border-radius: 5px;
         }
+
         .sub-index .third-level {
-            background-color: #90ee90; /* Verde claro para GR prefijo */
+            background-color: #90ee90;
             color: #000000;
         }
+
         .sub-index .third-level.r-prefix {
-            background-color: #ff9999; /* Rojo suave para H prefijo */
+            background-color: #ff9999;
         }
+
         .sub-index .third-level.y-prefix {
-            background-color: #feff77; /* Amarillo para V prefijo */
+            background-color: #feff77;
         }
+
         .sub-index .third-level.ys-prefix {
-            background-color: #fffd22; /* Amarillo para V prefijo */
+            background-color: #fffd22;
         }
+
         .sub-index .third-level.gs-prefix {
-            background-color: #02ff44; /* Verde fuerte para (nuevo), [𝙣𝙚𝙬], [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚] */
+            background-color: #02ff44;
         }
+
         .sub-index .third-level.rs-prefix {
-            background-color: #ff4d4d; /* Rojo o verde fuerte para (nuevo), [𝙣𝙚𝙬], [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚] */
+            background-color: #ff4d4d;
         }
+
+        .sub-index .third-level.g-prefix {
+            background-color: #90ee90;
+        }
+
+        /* Se mantiene el verde estándar para g-prefix */
+
         .sub-index .sub-item a {
             text-decoration: none;
             color: inherit;
+            display: block;
+            /* Asegura que el área de clic ocupe toda la caja */
         }
+
         .sub-index .sub-item a:hover {
             text-decoration: underline;
             color: #004080;
         }
+
         .sub-index .sub-item:hover {
             opacity: 0.9;
         }
+
         mark {
             background-color: yellow;
             color: black;
@@ -148,965 +168,444 @@
         }
     </script>
 </head>
+
 <body>
     <div class="container">
-      <div class="header">
-        <img src="img/LogoMP.png" alt="Logo MP" class="logo-abs" />
-        <h1>Quick Guides & Helps</h1>
-      </div>
-      <input type="text" id="searchInput" placeholder="Search for a guide..." style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
-
-        <div class="index-item english" onclick="toggleSubIndex(this)">
-            <span>English</span>
-            <img src="https://flagcdn.com/w40/gb.png" alt="Bandera de Reino Unido">
+        <div class="header">
+            <img src="img/LogoMP.png" alt="Logo MP" class="logo-abs" />
+            <h1>Quick Guides & Helps</h1>
         </div>
-        <div class="sub-index">
-            <div class="sub-item" onclick="toggleSubIndex(this)">Doors</div>
-            <div class="sub-index">
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec-ndwMMiCRPr9ZanBWpQlcBjrl1NzWezZZnjW3fdEJOSg?e=C4fk19" target="_blank">
-                        GR025 Syngo operator settings V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS%2FGR007%20Reveco%20software%20change%20V01%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS" target="_blank">
-                        GR007 Reveco software change V01 
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9VIP92e-JCnnuRQOcAn-0BnLDAFtGomhk0LZOOZhlMWw?e=bGh8sb" target="_blank">
-                        H001 Reveco-GO door size reading with mechanical interlocking V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">EcoGo</div>
-        <div class="sub-index">
-                        <div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYOWAD2q4zQYTDMRsOkYhHAdK7H9g3dRmFPYf-u0bCQko?e=dmpOTu" target="_blank">
-                        GR001 Additional magnets for ecoGO positioning system V07 [𝙪𝙥𝙙𝙖𝙩𝙚𝙙]
-                    </a>
-                </div>
-                        <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYGQFYs6ZiRYl37sMqYX0QAXRMQLCkTVrD4Z5GhxzsbvA?e=pCrcs2" target="_blank">
-                        GR028 Errors 06.18.06-17-20 EcoDrive V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaGZJ0e2LU1OtmtMDeNWVhoBojM2c5i0rcwXI76iPecU0w?e=fdeWcG" target="_blank">
-                        GR024 Link configuration, calls and S4L EcoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeT9P1E8lgNHqXX2F6Cy6_kBSlAGy8LAk-4sANJMYCuStg?e=9OV3tN" target="_blank">
-                        GR023 Duplex telephony configuration - Sigma registration ecoGO V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERqDdgGLh3JLiK3WPEjoG68BnyBP28moHQgwpqWQ_7fxbg?e=lm6iP3" target="_blank">
-                        GR022 LOB board configuration V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
-                        GR018 Fermator VF7 ecoGO V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
-                        GR017 Fermator VF5+ ecoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
-                        GR016 Fermator ECC ecoGO V00
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EW6C_Yyfq5RBqvIm3V_7EKwBQ2VfHBLmMZN_8gXnRny2eg?e=gZgHRF" target="_blank">
-                        GR013 Non Interchangeable ecoGO boards V01
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERfudd-aZuFKsCVp_FUWl6gBQNrng3CnFRbkTCLYJXmUwA?e=FLhBpl" target="_blank">
-                        GR012 Configuration Duplex, Triplex, Quadruplex with VC V01
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdHD9V9tJ69BqY9vacoOtdABEiC3e4z4LWOnySTZf75XVg?e=2dfVTh" target="_blank">
-                        GR011 Programming audio messages V01
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESpBLhPcdLhFtNdLfo24jKwBvVE0IDm7QGZvkfAPXK38ow?e=qfh5jX" target="_blank">
-                        GR010 EcoGO braking distance setting with EcoDrive inverter V01
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXaWM4_kSlZGmr-xq2BwvvsB3FPYKJRwyNmkJDs4n-2u_Q?e=8N1alD" target="_blank">
-                        GR009 EcoGO console licence upgrade V01
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EURrH_M595hCsGUz8eRbhKYB0OTIRmOBZmsMY0HpsK57Qw?e=Fuim06" target="_blank">
-                        GR008 Muxcan settings V02
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:w:/s/TechnicalServiceComunications/ETFjk-P_oAJEmm4hlKMJDi8BBmXkn0dwESOQoYpTmD1XuQ?e=CibsXy" target="_blank">
-                        GR006 EcoGO sounds V02
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuIJ3UmvSlDkoaWhFkNnOIBjN-0Woyj-BnsF03b8FKgIw?e=IrfgJq" target="_blank">
-                        GR005 Terminating resistor V01
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfkxIcmbj1pCrgbq9lI2bNYB_hI8NZbSj91yCQcMRfEsWQ?e=Pgdfxf" target="_blank">
-                        GR004 ADI V01
-                    </a>
-                </div>
-             <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWrZPrXk_PtNukpy_SjBg8sBOtPgibJ53lcjWkxDYkcAUg?e=eThNIr" target="_blank">
-                        GR003 SAB ecoGO V03
-                    </a>
-                </div>
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EalFgZJaljBIqVbS7W6Bv0sBy6zLm45yhefcj88m_9C8mA?e=2xq7xG" target="_blank">
-                        GR002 TFT Editor ecoGO V00
-                    </a>
-                </div>
-                        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO%2FGR000%20ecoGO%20power%20adjustment%20V00%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO" target="_blank">
-                        GR000 EcoGO power adjustment V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYHKfzH65BVPkVv183tYQ04BEmDy4LJTicnjlwuwwGvm1A?e=DyWfvg" target="_blank">
-                        GRELecoGO_Sust_ALIM1_ALIM2
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWfNOXEFxZRPrKFxp67OUZsBJwJKdcIHRfn4WKTQTie1CQ?e=Ae2CI3" target="_blank">
-                       GRSSP-TD_HEAD_001
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Eam52e1QK2pDp9ZxQrAJ5tYBne6H-CKPtaHjlJqnzE5nJQ?e=PoTZWH" target="_blank">
-                        H000 ecoGO assembly drive V00
-                    </a>
-                </div>
-<div class="sub-item third-level ys-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAufAKNC5dCSIet06SMfoW0AdC2Fb20rUEfAlXqWlrv248?e=hkUMtz" target="_blank">
-                        V011 -  Mountings and positioning connections [𝙣𝙚𝙬]
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCzX35os3ljRJJ26fdEocZmAZBsU6iQ89XIUM3buGCdapg?e=9dUOtT" target="_blank">
-                        5. Autotuning (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDPfnTI19eUQqtgeTtV5GjfAYY0bYGk5_fW1dNcsc0jmg0?e=eDPGdg" target="_blank">
-                        4. HEAD controller PC (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxdj3yinNGTp74jGAmOl6NAb1iCcmTTUsVMmkrJYuAX08?e=9FcKOF" target="_blank">
-                        3. HEAD controller mobile
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDGdeXJoKbvTLQ6o0ABaTujAWgII6LbnKj29RSsyEvbxdE?e=5CSeRN" target="_blank">
-                        2. Distributed electronics
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD_l8NDA_OyR5LlAX30FthgASZMMsRwAe6qBrglm_rSxjg?e=WeNId3" target="_blank">
-                       1. ecoGO controller
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/Ea29FzlAdaBPukzW-rVZv7EBwBgS2uJ7jJ4vaDScfw-zhg?e=FfXK1B" target="_blank">
-                        Learning (EN)
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">General Electric</div>
-<div class="sub-index">
-<div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAn5jdmXdbARpSOZmPDOXCIAWhENqtRNYr_7xK1FqDfgMc?e=vlwKw2" target="_blank">
-                        GR027 Errors 06-11-14 3VF-MAC DSP V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EX3owe4tq8ZJmGRG6ryTI9QBv2GABGq1Sy-9S2opSiAAdw?e=fbVJDT" target="_blank">
-                        GR014 Parameters for gearless drivers V01
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETx4uAGE2jBGkhqKipFYBiIB17b1bgDwulu4mOw3CQznBA?e=USYjEI" target="_blank">
-                        GR007 Reveco software change V01
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">General Mechanic</div>
-            <div class="sub-index">
-            <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVgQXzssONNLgepGqOzX5jAB2-8JfOG08fyEmsB9A3e9gQ?e=z1KKbb" target="_blank">
-                        GR015 SAB with MB and VS V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQv3lSWHxaRHuslbbXUffb0B3GqdH3JLgfoqJRPowbSUCA?e=ukn0Qd" target="_blank">
-                        GR003 SAB ecoGO V03
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETn3frDslsdBqKJ2MJL-r2IBe9T9hUXZvLTR54R86_17mQ?e=I8FSjA" target="_blank">
-                        H005 Gervall spring tensioning pulley V00
-                    </a>
-                </div>
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZRrG2_zqEVDsx61VIEDZzYBtT6s2Y3TMdu1ASYLV3AxCQ?e=oEgJTZ" target="_blank">
-                        H002 Unidirectional Cobianchi PC 12TE V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Microbasic</div>
-<div class="sub-index">
-     <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db" target="_blank">
-                        GR015 SAB with MB and VS V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG" target="_blank">
-                        GR014 Parameters for gearless drivers V01
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Via Serie</div>
-<div class="sub-index">
-     <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db" target="_blank">
-                        GR015 SAB with MB and VS V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG" target="_blank">
-                        GR014 Parameters for gearless drivers V01
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Hydraulic</div>
-<div class="sub-index">
-                <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdUL7_lnZThBl3CpeBeJj7kBMX6KbEvdlVCxCIXvhGT6pA?e=HHer5V" target="_blank">
-                        GR026 Morispain MH2V V00
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAGtrUSUKD0S6Osp0UCIwW9ATOHnW1Z2Tlsgv_lDpQnx0w?e=F9i6Gc" target="_blank">
-                        V010-Sava3 - Continuous releveling
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCsMLftquJLQptEwyCZzRGzAT9vwgU7c8ssdorSgFla6SY?e=PZGDQr" target="_blank">
-                        V002-Sava3 - Slower than normal speed
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBTetZnRJILRZPuWkaHO-b7Ae-vbEsVDNF0V3ON_UL7W9M?e=0fierg" target="_blank">
-                        V001-Sava3 - Does not travel upward
-                    </a>
-                </div>
-            </div>
-    <div class="sub-item" onclick="toggleSubIndex(this)">Others</div>
-<div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ1LwyhrSwZNvOh5WJX-3eQBDbBO20r_OJ3--a9Nroj1pg?e=RxjlMf" target="_blank">
-                        H004 Voucher request V00
-                    </a>
-                </div>
-            </div>
+        <input type="text" id="searchInput" placeholder="Search for a guide..."
+            style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
 
-        </div>
-
-        <div class="index-item spanish" onclick="toggleSubIndex(this)">
-            <span>Español</span>
-            <img src="https://flagcdn.com/w40/es.png" alt="Bandera de España">
-        </div>
-        <div class="sub-index">
-            <div class="sub-item" onclick="toggleSubIndex(this)">Puertas</div>
-    <div class="sub-index">
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EY9-quvvBkRGoWFDqzN3ufAB0Gk9b9gJRSZfL7W2xNtsxA?e=M3pwPH" target="_blank">
-                        GR025 Ajustes operador SynGO V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdTX3XSXuXFJofngJnaef0gBMD2aDFB6Qj6M2whDkPJgiw?e=DPmumI" target="_blank">
-                        GR007 Reveco cambio sotfware V01
-                    </a>
-                </div>
-        <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EW0-HSSz0fhMltIrS1MB2NAB-x6eESbSgthlfIUpefLsyQ?e=2AANC2" target="_blank">
-                        H001 Lectura del tamaño de la puerta Reveco-GO con enclavamiento mecánico V00
-                    </a>
-                </div>
-            </div>
-
-            <div class="sub-item" onclick="toggleSubIndex(this)">EcoGo</div>
-    <div class="sub-index">
-                <div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDXQgzU-Ir7SoE-3nOVaKPKATsMzcAos6x0E39_UHvvFX8?e=Kc0prw" target="_blank">
-                       GR001 Imanes adicionales del sistema de posicionamiento ecoGO V07 [𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤]
-                    </a>
-                </div>
-                <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCZm0zWVpSQTJE0vJZbvEPyAeTUiCJ8lBIH3boUJgDMJyw?e=axmB4Q" target="_blank">
-                       GR028 Errores 06.18.06-17-20 EcoDrive V00 
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWJDMxSCp3JAmdzh-_HGStcBeb7_AFVg8DoLGYKZkPgahQ?e=dG6TDg" target="_blank">
-                        GR024 Configuración Link, llamadas y S4L EcoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ER9KW6qqYTtGmiEXuOgVozoBuG0i_Difu2azR6kXNbYiTg?e=3vnYmJ" target="_blank">
-                        GR023 Configuración telefonía duplex - alta Sigma EcoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ5rXyloNrtIntDkUJ9mJSsBB7W1p7sTurZ5YyQtNTH-pg?e=64y3wB" target="_blank">
-                        GR022 Configuración placa LOB V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
-                        GR018 Fermator VF7 ecoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
-                        GR017 Fermator VF5+ ecoGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
-                         GR016 Fermator ECC ecoGO V00
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeB1eMWFE_NIv4NczrpMBZgB-qCMa3DYdOL9s0ktTCwHVA?e=rACCNP" target="_blank">
-                        GR013 Placas ecoGO no intercambiables V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERJBXYBCcwNBkucN1DGCxusBK7oLlTB7WTP3EACrVcJBjA?e=4qdMZZ" target="_blank">
-                        GR012 Configuración Duplex, Triplex, Cuadruplex con VC V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYYEznunaPpDrQ0o7VOWqpcBxYZZQbVJrEb4vCX6L_uDgA?e=3ClJUP" target="_blank">
-                        GR011 Programación de mensajes de audio V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaInQtn06hlAtXesWESV2nABWGXkY30Gnrcxyqw3yGRHhQ?e=2vgYnp" target="_blank">
-                        GR010 Configuración distancia de frenado EcoGO con variador EcoDrive V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeiZ2wpQV7tDuhfnutjLtokBxsiBEPBlJBUgALFOcAlDTg?e=NEsIQw" target="_blank">
-                        GR009 Actualización de licencia de consola V01
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                  <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ET9MqJQIlmJHiqVOY-zxjOUB-R8ga1HcIVgotS2lz01PJQ?e=hVLfCD" target="_blank">
-                        GR008 Configuraciones de la placa Muxcan V02
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:w:/s/TechnicalServiceComunications/EQw5CszI1m5DkRMcXf9NIjYBxvHXVj9_vAqvXjZ6ttarOg?e=h0pDBy" target="_blank">
-                        GR006 sonidos ecoGO V02
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcGlFqww8hVGgz5X2POg7hkBXTN3iUclXji_gHAAYLrZZQ?e=fHQaG5" target="_blank">
-                        GR005 Resistencias terminales V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ES5Glq0CgrdFshnQ_1Fs1psBcxGdiGjv7ZOYxR9UgGpyOw?e=0S0LnC" target="_blank">
-                        GR004 ADI V01
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWsJ0H4Etu1EtSaRwz2UsI4BdvFRmh_6Is87CUgpS0tnQA?e=Dd2R2r" target="_blank">
-                        GR003 SAB EcoGO V03
-                    </a>
-                </div>
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYEvOi7lQQdDi2nzNttWGF4BshPABfh_W-P-5hG8MROEdw?e=HDXMnE" target="_blank">
-                        GR002 TFT Editor ecoGO V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcBOLptdnxxHnqjVf_h4HT8B4ctnml5MpxHGkRMG6EK9Pg?e=dcPL0e" target="_blank">
-                        GR000 Ajuste alimentación ecoGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeZZieVDEWRBsaapz76otMgBZBrUQ5EpO2WGAF4tRFcKQA?e=6arGIu" target="_blank">
-                        GRELEcoGO_Sust_ALIM1_ALIM2
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ee1JlTAhTGFAqy26ZbzcP7YBb11s4gX42dgaIHbrpa47VA?e=hAq5bM" target="_blank">
-                        GRSSP-TD_HEAD_001
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdPEGPFar0hJv_2UbvEkA2YB-cGCWOuwBqkQB7M1l1mWzA?e=7zecuY" target="_blank">
-                        H000 Mando de montaje ecoGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level ys-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCpKwU8hMPIRaB4QhMfkGREAUjNq5CvEVdvgvjDtNipgh4?e=Tugroc" target="_blank">
-                       V011 - Montajes y conexiones de posicionamiento [𝙣𝙪𝙚𝙫𝙤]
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBhdufAdEm3RqQGUOJIuR5lASqDmGKU099D3Cyojf_cyBo?e=5GugBt" target="_blank">
-                        5. Autotuning (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCV1KbaVP5zSYFVNz9vnx-tAYJFAdZWBIdJyGAdR1NBQg4?e=8SRhEp" target="_blank">
-                        4. HEAD controller PC (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBjIA3n3f6XSKr43v6ojevPAZmSyXBDCFjtRs6HsPop6f8?e=bnrgmp" target="_blank">
-                        3. HEAD controller mobile 
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDWMlT4NyL1QbU_SGxMNWwhAehgVtMQoGy-pqqWUh0CDuM?e=fPlWPa" target="_blank">
-                        2. Electrónica Distribuida
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCK8NK0g3MET5stMS9naQJcAYXELBtokaH0NVc_7QQqrBo?e=w8yqoh" target="_blank">
-                        1. Cuadro ecoGO
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/EfZC8SRb7apGpEqAtfPKMJwBWrWiB6xhh2sqtaBOazWTNw?e=hpmmxC" target="_blank">
-                        Learning (ES)
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Eléctrica General</div>
-<div class="sub-index">
- <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCINdjqhPwdTIyOBfNpFKnFAXk4Y-ammPZld-U1lFyDXBQ?e=MljGtL" target="_blank">
-                        GR027 Errores 06-11-14 3VF-MAC DSP V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdxqP4LBPwhEmX9mQijdHk4BuAPNxbakFIu55yc9y3vThQ?e=Xnhd9O" target="_blank">
-                        GR014 Parámetros para máquinas gearless V01
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EafXVB9PknRPsG5jjIkqfSsB2Fxjk-9D1stNXvl_QJnRAA?e=Wrkulx" target="_blank">
-                        GR007 Reveco cambio sotfware V01
-                    </a>
-                </div>
-    <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Mecánica General</div>
-    <div class="sub-index">
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZEi5HF4_VFKn7r_I749M7gBAmiyxzw3PEPBSbPvwGkY8Q?e=RkIeo1" target="_blank">
-                        GR015 SAB con MB y VS V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbrFoY6yH7RGh4NTrb2p_2kBbeULHeORi0zfmT5INUfdbw?e=gbe0Il" target="_blank">
-                        GR003 Sab EcoGO V003
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVzoG7F4hJBDq8NkMEEWOoQBm8jd6D8S685H4bUTkhPlrg?e=km01cS" target="_blank">
-                        H005 Polea tensora con muelles Gervall V00
-                    </a>
-                </div>
-        <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQpP68XZYdNOvx1ZxO_2pBQBZJ-rd-gezJvxpXHjqG5vjw?e=akiTM7" target="_blank">
-                        H002 Cobianchi unidireccional PC 12TE V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Microbasic</div>
-    <div class="sub-index">
-        <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX" target="_blank">
-                        GR015 SAB con MB y VS V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3" target="_blank">
-                        GR014 Parámetros para máquinas gearless V01
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Via Serie</div>
-<div class="sub-index">
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX" target="_blank">
-                        GR015 SAB con MB y VS V00
-                    </a>
-                </div>
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3" target="_blank">
-                        GR014 Parámetros para máquinas gearless V01
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb" target="_blank">
-                        H003 Error 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Hidráulica</div>
-<div class="sub-index">
-                <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EckBPgSSHAtFkx_7CsPTRw4BU_L3Epa8RCQBI1ttIk4F5g?e=cV2xla" target="_blank">
-                        GR026 Morispain MH2V V00
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAyIWROnxBERbMD4VnpFusrAXswfamM8mhnfNq9YBjBA-0?e=tzz9qS" target="_blank">
-                        V010-Sava3 - Renivelacion continua
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAbuOx2lshnRoCgmUW5VJfKAbaVRotAYS-kdiJr0X1GFUE?e=FnxjW6" target="_blank">
-                       V002-Sava3  - Velocidad más lenta de lo normal
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQATNwBe40r0SJ1QKp03cdffASlJaqOhOZ4hRB48fd_UFT0?e=sNvuTY" target="_blank">
-                        V001-Sava3 - No sube 
-                    </a>
-                </div>
-            </div>
- <div class="sub-item" onclick="toggleSubIndex(this)">Otros</div>
-<div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQlY3dTeLeZJii1ocquzyGIBwBn_8iC-1MBSzisl7h5WlA?e=OurcUh" target="_blank">
-                        H004 Peticion de Bono V00
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="index-item french" onclick="toggleSubIndex(this)">
-            <span>Français</span>
-            <img src="https://flagcdn.com/w40/fr.png" alt="Bandera de Francia">
-        </div>
-        <div class="sub-index">
-            <div class="sub-item" onclick="toggleSubIndex(this)">Portes</div>
-    <div class="sub-index">
-                <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9SUnhO_NNGlwh2jnb4TpEBsISwqi1gvfTR0X0r6NJxIA?e=gJOpWY" target="_blank">
-                        GR025 Réglages de l'opérateur SynGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWdhk1LxMQZBnopriy9H1oYBq8rONofaA7192p4hLugwQQ?e=oFghPx" target="_blank">
-                        H001 Reveco-GO lecture de la taille de la porte avec verrouillage mécanique V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">EcoGo</div>
-<div class="sub-index">
- <div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCIq-tetYjISabmK_qxW7iiAUI3xUbmiTicVyrpiQnY4cI?e=qaHuTt" target="_blank">
-                        GR001 Aimants supplémentaires du système de positionnement ecoGO V07 [𝙢𝙞𝙨 𝙖̀ 𝙟𝙤𝙪𝙧]
-                    </a>
-                </div>
- <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB3UGvmS0mATLlhI6YlpnmxAU23H_fMFMDF4LL7PwLljL4?e=kilMgS" target="_blank">
-                       GR028 Erreures 06.18.06-17-20 EcoDrive V00 
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQSRvE0MtBZIo3KaYkngaUQB6hKyaRKhPCl4m9zs7yH0qg?e=tscvdR" target="_blank">
-                        GR024 Configuration Link, appels et S4L ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQqweom41P9Jus0Wvw0EvfABfS5XjOv7TiqexbXt62fckg?e=2WBabC" target="_blank">
-                        GR023 Configuration téléphonique duplex - Enregistrement Sigma S4L ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXn-HxIs82NAmoJFHsJNRS4Bioc4ZzNh8Ya7Rbzd_CV8og?e=34rv4M" target="_blank">
-                        GR022 Configuration de la carte LOB V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28" target="_blank">
-                        GR021 Selcom Midi Supra V2 ecoGO V01
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K" target="_blank">
-                        GR020 Fermator VF7 Relay ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9" target="_blank">
-                        GR019 Fermator VF7+ Relay ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC" target="_blank">
-                        GR018 Fermator VF7 ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb" target="_blank">
-                        GR017 Fermator VF5+ ecoGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8" target="_blank">
-                         GR016 Fermator ECC ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EflutAejI2tDqo-89eJya9UBInnTe9WFRiWBX3DHfvmkKg?e=3t21J4" target="_blank">
-                        GR005 Resistances terminasion V01
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZwCMlxJKydMvugWcTAOZFMBRpypp7lqDO5h-Gfh5773LQ?e=eDDArk" target="_blank">
-                        GR002 TFT Editor ecoGO V00
-                    </a>
-                </div>
-    <div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaAh2yN7_OxIoRgMDSwtNiIB-Ox6Waqc-nrZBCIF_s0-CA?e=YjcAAU" target="_blank">
-                        GR000 ecoGO reglage de l'alimentation V00
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbDOY_8ccHRKtsL5PR_c9IIB4nD97M7Rf9eJlsQxsSBFtw?e=yzRb3Q" target="_blank">
-                        GRELecoGO_Sust_ALIM1_ALIM2
-                    </a>
-                </div>
-<div class="sub-item third-level">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfA5Wj1VhFpKjViMgLlcozgBvREVD4cNhLhdjdJaVO3yHg?e=SeMx8d" target="_blank">
-                        GRSSP-TD_HEAD_001
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYhGyGzUxK1Aqwc9SZVnR1oBst2CxkU_UiM6wh-vpDxBog?e=RvrKzR" target="_blank">
-                        H000 Contrôle de l'assemblage ecoGO V00
-                    </a>
-                </div>
-<div class="sub-item third-level ys-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBH7SEdFETVSqVL2r7cHkivAe9I-XIGT02B9XdcW7qsTEQ?e=yDDHoB" target="_blank">
-                       V011 -  Montages et raccordements de positionnement [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB2L9VpxgH_SbI5eQCEW-hdAR7fqjODqh2JZxsL_hXbiZk?e=7pbB9h" target="_blank">
-                        5. Autotuning (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB79detOv9NTpCfWaDI0WYCAUgnk25kDPnbMox2qOkJFHo?e=c0uA7M" target="_blank">
-                        4. HEAD controller pour PC (H) 
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBZZU9VecRQQaA_kPJRPgZGAdzAkULK4UcQqRs-86AP5T0?e=r7sp9R" target="_blank">
-                        3. HEAD controller pour portable 
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDFOn8N-SUnT5BZ4Y74J_TEAXtLs_9q6xBlRNd1wjuczBE?e=v3Sk4t" target="_blank">
-                        2. Électronique distribuée
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDKvRwynsJbS45EInpMDa_SAeqOHVqYjuWuMHlmrAZz8F8?e=zM6kdJ" target="_blank">
-                        1. L'armoire de commande MP ecoGO
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/ESZ_MQm7PwJLmjP6GXYZed8B9CqUyig5Hc8aVMjM2YwDhg?e=MH6y91" target="_blank">
-                        Learning (FR)
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Électricité générale</div>
-<div class="sub-index">
-<div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQARxtNQxxPaSLx_u5t13phaAWfX9AlkcQuvhKv2ivD0ZyI?e=x3Aguw" target="_blank">
-                        GR027 Erreurs 06-11-14 3VF-MAC DSP V00
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv" target="_blank">
-                        H003 Erreur 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">Mécanique Générale</div>
-    <div class="sub-index">
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETntwIIjqldKpjzXU544Q_oBOJNaEJNZdtvuAzX7YXNwOg?e=m3kfxt" target="_blank">
-                        H005 Poulie de tension à ressort Gervall V00
-                    </a>
-                </div>
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EavQ4r64dxFJtqf1hFB7plkB5qA-8WhPvu6MoZyTHCR19g?e=6Z5bsj" target="_blank">
-                        H002 Cobianchi unidirectionnel PC 12TE V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Microbasic</div>
-    <div class="sub-index">
-                   <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv" target="_blank">
-                        H003 Erreur 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Via Serie</div>
-    <div class="sub-index">
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv" target="_blank">
-                        H003 Erreur 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Hydraulique</div>
-    <div class="sub-index">
-                <div class="sub-item third-level g-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdyYjabgz5pGjzW42bTiBSMBQRNBmr-hDG9I3FV0AWBxRQ?e=9WhK6b" target="_blank">
-                        GR026 Morispain MH2V V00
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxnjCeuRFkQ7p2ZDmMCPpeAbpqZ50fuUC3_1nol08qblg?e=8tLhIK" target="_blank">
-                        V010-Sava3 - Renivelage continu
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAF5Hxr95MjRrd_nJ5aJ6v9AWoi8DIbXwxg8jO8w4Ttv54?e=ABx9Qt" target="_blank">
-                        V002-Sava 3 - Vitesse plus lente que la normale
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQARBIoMIQNDRao_wbduE_5aAY_4z4voq5rmAH9oktGNrb0?e=r4ZATn" target="_blank">
-                        V001-Sava3 - Ne monte pas 
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Autres</div>
-    <div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                   <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQOxWxQUiHtIs3YcMkww0nkBca9z_-t6x8pZKERWbYV5kg?e=vw58jb" target="_blank">
-                        H004 Demande de bon V00
-                    </a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="index-item german" onclick="toggleSubIndex(this)">
-            <span>Deutsch</span>
-            <img src="https://flagcdn.com/w40/de.png" alt="Bandera de Alemania">
-        </div>
-        <div class="sub-index">
-<div class="sub-item" onclick="toggleSubIndex(this)">Türen</div>
-    <div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                   <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfyT1ARLuO9Mo3uqVQd3kYMBRqkLgoxhMPU-fNB388DB8g?e=FhoJxt" target="_blank">
-                        H001 Reveco-GO Türgrößenanzeige mit mechanischer Verriegelung V00
-                    </a>
-                </div>
-            </div>
-            <div class="sub-item" onclick="toggleSubIndex(this)">EcoGo</div>
-    <div class="sub-index">
-         <div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD30VKkCrGbSILu2hb1MSY0AX439RiJJctt4Qo2LdIpuLU?e=UbUiPv" target="_blank">
-                        GR032 ECOGOTOOLS-KURZANLEITUNG – ERSTE SCHRITTE DE 1 [neu]
-                    </a>
-                </div>
-                 <div class="sub-item third-level gs-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBG45HkjQy1SaD-1ekGrirgAcL3Rvv692xIU93v5G8iBMA?e=fecYVi" target="_blank">
-                        GR001 Zusätzliche magnete des EcoGO ortugssystems V07 [𝙖𝙠𝙩𝙪𝙖𝙡𝙞𝙨𝙞𝙚𝙧𝙩]
-                    </a>
-                </div>
-<div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaxvL5PitDtDtKsMHQ9msxoBh-ucLSXjwfXW3T69SKLMaw?e=mjdyD1" target="_blank">
-                        H000 ecoGO Montagekontrolle V00
-                    </a>
-                </div>
-<div class="sub-item third-level ys-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8qjsa_aYIQ7tH5ATegxBkAa0pwmkgwAsdmeKU6ewvoNM?e=aJUjY7" target="_blank">
-                        V011 -  Befestigungen und Positionierungsverbindungen [𝙣𝙚𝙪]
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDsWwVL5qZEQIXRect7luqlAZ1eAhkoKee4I_5_pXa5n4I?e=bIvEmO" target="_blank">
-                        5. Autotuning (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCztObRUIb0Q6hCmcV_TGN8AYnSjaKUEMX5iREA4xfnyFo?e=c6aLap" target="_blank">
-                        4. HEAD-Controller für PC (H)
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDtWMpaAyWiRLW_6YEZDD_UAZ-ZAfxImJUXtk_rj4BqUko?e=mpb7Qk" target="_blank">
-                        3. HEAD Controllers über mobiles
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8eY6QA-FmSqoFLXBSTsjiAZdPC_dr_BCvhgPsOExRKW4?e=riKucx" target="_blank">
-                        2. Verteilte Elektronik
-                    </a>
-                </div>
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDq5NngT55LTL5FFkZ8PWqRAeZm1xAkruRZm4m-4b5jO04?e=bmetx6" target="_blank">
-                       1. Schulung Schaltschrank ecoGO
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Allgemein Elektrisch</div>
-    <div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR" target="_blank">
-                        H003 Fehler 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Allgemeine Mechanik</div>
-    <div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR" target="_blank">
-                        H003 Fehler 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Via Serie</div>
-    <div class="sub-index">
-                <div class="sub-item third-level r-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR" target="_blank">
-                        H003 Fehler 51 3VF-MAC DSP V00
-                    </a>
-                </div>
-            </div>
-<div class="sub-item" onclick="toggleSubIndex(this)">Hydraulik</div>
-<div class="sub-index">
-<div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD_TivAPtU5Ra5nBPBGEu6iAQs65HN5icqoIsX2uGoA4UI?e=8TlZFs" target="_blank">
-                        V010-Sava3 - Kontinuierliche Nivellierung
-                    </a>
-                </div>
-               <div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCzl5W17HkpTLsnsk-1iFR3AfpXab6NbVS0_BhpydYFrRw?e=cBJBpn" target="_blank">
-                        V002-Sava3 - Langsamer als die normale Geschwindigkeit
-                    </a>
-                </div>
-                <div class="sub-item third-level y-prefix">
-                    <a href="https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBeAtLllNZxRqm1YfQrmEP6AeEZhgkjXpca9Y0qWKYrNsQ?e=I4vVXi" target="_blank">
-                        V001-Sava3 - Nicht oben fährt
-                    </a>
-                </div>
-            </div>
-
-        </div>
+        <!-- El contenedor donde se generan las guías automáticamente -->
+        <div id="guides-container"></div>
     </div>
 
     <script>
+        // ======================================================================
+        // BASE DE DATOS DE GUÍAS
+        // Para añadir nuevas, simplemente inserta una nueva línea { titulo: "", url: "", tipo: "" }
+        // ======================================================================
+        const baseDeDatos = [
+            {
+                idioma: "English",
+                claseColor: "english",
+                bandera: "gb",
+                categorias: [
+                    {
+                        nombre: "Doors",
+                        guias: [
+                            { titulo: "GR025 Syngo operator settings V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec-ndwMMiCRPr9ZanBWpQlcBjrl1NzWezZZnjW3fdEJOSg?e=C4fk19", tipo: "" },
+                            { titulo: "GR007 Reveco software change V01", url: "https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS%2FGR007%20Reveco%20software%20change%20V01%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS", tipo: "" },
+                            { titulo: "H001 Reveco-GO door size reading with mechanical interlocking V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9VIP92e-JCnnuRQOcAn-0BnLDAFtGomhk0LZOOZhlMWw?e=bGh8sb", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "EcoGo",
+                        guias: [
+                            { titulo: "GR033 ECOGOTOOLS QUICK GUIDE – MAINTENANCE ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAfzHuKACsDS6YRrGyoxJxBAaVb6p5hX1aHSxGz09DTsfg?e=eVFfp5", tipo: "gs-prefix" },
+                            { titulo: "GR032 ECOGOTOOLS QUICK GUIDE – GETTING STARTED ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQApEAhuuNlNRpJgJq7_Z8dPAa5vUbPoICvcgR_ChBI_Yic?e=XuSy4b", tipo: "gs-prefix" },
+                            { titulo: "GR031 EcoGOTools assembly stage ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDsrzeG622sSJKjYIGvWTfYAS8-99Eh2TXOSBXv4WtpHqc?e=f8Ub6P", tipo: "gs-prefix" },
+                            { titulo: "GR001 Additional magnets for ecoGO positioning system V07 [𝙪𝙥𝙙𝙖𝙩𝙚𝙙]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYOWAD2q4zQYTDMRsOkYhHAdK7H9g3dRmFPYf-u0bCQko?e=dmpOTu", tipo: "gs-prefix" },
+                            { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYGQFYs6ZiRYl37sMqYX0QAXRMQLCkTVrD4Z5GhxzsbvA?e=pCrcs2", tipo: "g-prefix" },
+                            { titulo: "GR024 Link configuration, calls and S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaGZJ0e2LU1OtmtMDeNWVhoBojM2c5i0rcwXI76iPecU0w?e=fdeWcG", tipo: "" },
+                            { titulo: "GR023 Duplex telephony configuration - Sigma registration ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeT9P1E8lgNHqXX2F6Cy6_kBSlAGy8LAk-4sANJMYCuStg?e=9OV3tN", tipo: "" },
+                            { titulo: "GR022 LOB board configuration V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERqDdgGLh3JLiK3WPEjoG68BnyBP28moHQgwpqWQ_7fxbg?e=lm6iP3", tipo: "" },
+                            { titulo: "GR021 Selcom Midi Supra V2 ecoGO V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28", tipo: "" },
+                            { titulo: "GR020 Fermator VF7 Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K", tipo: "" },
+                            { titulo: "GR019 Fermator VF7+ Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9", tipo: "" },
+                            { titulo: "GR018 Fermator VF7 ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC", tipo: "" },
+                            { titulo: "GR017 Fermator VF5+ ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb", tipo: "" },
+                            { titulo: "GR016 Fermator ECC ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8", tipo: "" },
+                            { titulo: "GR013 Non Interchangeable ecoGO boards V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EW6C_Yyfq5RBqvIm3V_7EKwBQ2VfHBLmMZN_8gXnRny2eg?e=gZgHRF", tipo: "" },
+                            { titulo: "GR012 Configuration Duplex, Triplex, Quadruplex with VC V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERfudd-aZuFKsCVp_FUWl6gBQNrng3CnFRbkTCLYJXmUwA?e=FLhBpl", tipo: "" },
+                            { titulo: "GR011 Programming audio messages V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdHD9V9tJ69BqY9vacoOtdABEiC3e4z4LWOnySTZf75XVg?e=2dfVTh", tipo: "" },
+                            { titulo: "GR010 EcoGO braking distance setting with EcoDrive inverter V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESpBLhPcdLhFtNdLfo24jKwBvVE0IDm7QGZvkfAPXK38ow?e=qfh5jX", tipo: "" },
+                            { titulo: "GR009 EcoGO console licence upgrade V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXaWM4_kSlZGmr-xq2BwvvsB3FPYKJRwyNmkJDs4n-2u_Q?e=8N1alD", tipo: "" },
+                            { titulo: "GR008 Muxcan settings V02", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EURrH_M595hCsGUz8eRbhKYB0OTIRmOBZmsMY0HpsK57Qw?e=Fuim06", tipo: "" },
+                            { titulo: "GR006 EcoGO sounds V02", url: "https://mpascensores.sharepoint.com/:w:/s/TechnicalServiceComunications/ETFjk-P_oAJEmm4hlKMJDi8BBmXkn0dwESOQoYpTmD1XuQ?e=CibsXy", tipo: "" },
+                            { titulo: "GR005 Terminating resistor V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuIJ3UmvSlDkoaWhFkNnOIBjN-0Woyj-BnsF03b8FKgIw?e=IrfgJq", tipo: "" },
+                            { titulo: "GR004 ADI V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfkxIcmbj1pCrgbq9lI2bNYB_hI8NZbSj91yCQcMRfEsWQ?e=Pgdfxf", tipo: "" },
+                            { titulo: "GR003 SAB ecoGO V03", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWrZPrXk_PtNukpy_SjBg8sBOtPgibJ53lcjWkxDYkcAUg?e=eThNIr", tipo: "" },
+                            { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EalFgZJaljBIqVbS7W6Bv0sBy6zLm45yhefcj88m_9C8mA?e=2xq7xG", tipo: "" },
+                            { titulo: "GR000 EcoGO power adjustment V00", url: "https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO%2FGR000%20ecoGO%20power%20adjustment%20V00%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO", tipo: "" },
+                            { titulo: "GRELecoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYHKfzH65BVPkVv183tYQ04BEmDy4LJTicnjlwuwwGvm1A?e=DyWfvg", tipo: "" },
+                            { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWfNOXEFxZRPrKFxp67OUZsBJwJKdcIHRfn4WKTQTie1CQ?e=Ae2CI3", tipo: "" },
+                            { titulo: "H000 ecoGO assembly drive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Eam52e1QK2pDp9ZxQrAJ5tYBne6H-CKPtaHjlJqnzE5nJQ?e=PoTZWH", tipo: "r-prefix" },
+                            { titulo: "V011 -  Mountings and positioning connections [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAufAKNC5dCSIet06SMfoW0AdC2Fb20rUEfAlXqWlrv248?e=hkUMtz", tipo: "ys-prefix" },
+                            { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCzX35os3ljRJJ26fdEocZmAZBsU6iQ89XIUM3buGCdapg?e=9dUOtT", tipo: "y-prefix" },
+                            { titulo: "4. HEAD controller PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDPfnTI19eUQqtgeTtV5GjfAYY0bYGk5_fW1dNcsc0jmg0?e=eDPGdg", tipo: "y-prefix" },
+                            { titulo: "3. HEAD controller mobile", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxdj3yinNGTp74jGAmOl6NAb1iCcmTTUsVMmkrJYuAX08?e=9FcKOF", tipo: "y-prefix" },
+                            { titulo: "2. Distributed electronics", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDGdeXJoKbvTLQ6o0ABaTujAWgII6LbnKj29RSsyEvbxdE?e=5CSeRN", tipo: "y-prefix" },
+                            { titulo: "1. ecoGO controller", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD_l8NDA_OyR5LlAX30FthgASZMMsRwAe6qBrglm_rSxjg?e=WeNId3", tipo: "y-prefix" },
+                            { titulo: "Learning (EN)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/Ea29FzlAdaBPukzW-rVZv7EBwBgS2uJ7jJ4vaDScfw-zhg?e=FfXK1B", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "General Electric",
+                        guias: [
+                            { titulo: "GR027 Errors 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAn5jdmXdbARpSOZmPDOXCIAWhENqtRNYr_7xK1FqDfgMc?e=vlwKw2", tipo: "g-prefix" },
+                            { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EX3owe4tq8ZJmGRG6ryTI9QBv2GABGq1Sy-9S2opSiAAdw?e=fbVJDT", tipo: "" },
+                            { titulo: "GR007 Reveco software change V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETx4uAGE2jBGkhqKipFYBiIB17b1bgDwulu4mOw3CQznBA?e=USYjEI", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "General Mechanic",
+                        guias: [
+                            { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVgQXzssONNLgepGqOzX5jAB2-8JfOG08fyEmsB9A3e9gQ?e=z1KKbb", tipo: "" },
+                            { titulo: "GR003 SAB ecoGO V03", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQv3lSWHxaRHuslbbXUffb0B3GqdH3JLgfoqJRPowbSUCA?e=ukn0Qd", tipo: "" },
+                            { titulo: "H005 Gervall spring tensioning pulley V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETn3frDslsdBqKJ2MJL-r2IBe9T9hUXZvLTR54R86_17mQ?e=I8FSjA", tipo: "r-prefix" },
+                            { titulo: "H002 Unidirectional Cobianchi PC 12TE V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZRrG2_zqEVDsx61VIEDZzYBtT6s2Y3TMdu1ASYLV3AxCQ?e=oEgJTZ", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Microbasic",
+                        guias: [
+                            { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBq8ettWjpRRoAhY0n7r_z6AQuxHQhHm0EOXTHZyI21Jf8?e=LngnDT", tipo: "gs-prefix" },
+                            { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
+                            { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Via Serie",
+                        guias: [
+                            { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMJaSXvnu8SISw7kxdgaJNAT9l7ayCJICTnax7ITAne3Y?e=fj8W4u", tipo: "gs-prefix" },
+                            { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
+                            { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Hydraulic",
+                        guias: [
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdUL7_lnZThBl3CpeBeJj7kBMX6KbEvdlVCxCIXvhGT6pA?e=HHer5V", tipo: "g-prefix" },
+                            { titulo: "V010-Sava3 - Continuous releveling", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAGtrUSUKD0S6Osp0UCIwW9ATOHnW1Z2Tlsgv_lDpQnx0w?e=F9i6Gc", tipo: "y-prefix" },
+                            { titulo: "V002-Sava3 - Slower than normal speed", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCsMLftquJLQptEwyCZzRGzAT9vwgU7c8ssdorSgFla6SY?e=PZGDQr", tipo: "y-prefix" },
+                            { titulo: "V001-Sava3 - Does not travel upward", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBTetZnRJILRZPuWkaHO-b7Ae-vbEsVDNF0V3ON_UL7W9M?e=0fierg", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Others",
+                        guias: [
+                            { titulo: "H004 Voucher request V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ1LwyhrSwZNvOh5WJX-3eQBDbBO20r_OJ3--a9Nroj1pg?e=RxjlMf", tipo: "r-prefix" }
+                        ]
+                    }
+                ]
+            },
+            {
+                idioma: "Español",
+                claseColor: "spanish",
+                bandera: "es",
+                categorias: [
+                    {
+                        nombre: "Puertas",
+                        guias: [
+                            { titulo: "GR025 Ajustes operador SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EY9-quvvBkRGoWFDqzN3ufAB0Gk9b9gJRSZfL7W2xNtsxA?e=M3pwPH", tipo: "" },
+                            { titulo: "GR007 Reveco cambio sotfware V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdTX3XSXuXFJofngJnaef0gBMD2aDFB6Qj6M2whDkPJgiw?e=DPmumI", tipo: "" },
+                            { titulo: "H001 Lectura del tamaño de la puerta Reveco-GO con enclavamiento mecánico V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EW0-HSSz0fhMltIrS1MB2NAB-x6eESbSgthlfIUpefLsyQ?e=2AANC2", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "EcoGo",
+                        guias: [
+                            { titulo: "GR033 Guía Rápida ecoGotools – Mantenimiento ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAKYN5C_3oDR5Ad9mzESpK8ASf-lMJCm6k4GZo_Go048yY?e=P0qgg0", tipo: "gs-prefix" },
+                            { titulo: "GR032 Guía Rápida ecoGotools – Puesta en Marcha ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCxNd18wc9AS7tFeJJLxUHOATRjMl-H-CZzYWb17OrU5oc?e=oR7j8C", tipo: "gs-prefix" },
+                            { titulo: "GR031 EcoGOTools fase de montaje ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQClLurVuQjWT6GreUw8yof4AWDS6RiRudAboN80uY0JU_o?e=nLv41O", tipo: "gs-prefix" },                            
+                            { titulo: "GR001 Imanes adicionales del sistema de posicionamiento ecoGO V07 [𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDXQgzU-Ir7SoE-3nOVaKPKATsMzcAos6x0E39_UHvvFX8?e=Kc0prw", tipo: "gs-prefix" },
+                            { titulo: "GR028 Errores 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCZm0zWVpSQTJE0vJZbvEPyAeTUiCJ8lBIH3boUJgDMJyw?e=axmB4Q", tipo: "g-prefix" },
+                            { titulo: "GR024 Configuración Link, llamadas y S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWJDMxSCp3JAmdzh-_HGStcBeb7_AFVg8DoLGYKZkPgahQ?e=dG6TDg", tipo: "" },
+                            { titulo: "GR023 Configuración telefonía duplex - alta Sigma EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ER9KW6qqYTtGmiEXuOgVozoBuG0i_Difu2azR6kXNbYiTg?e=3vnYmJ", tipo: "" },
+                            { titulo: "GR022 Configuración placa LOB V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ5rXyloNrtIntDkUJ9mJSsBB7W1p7sTurZ5YyQtNTH-pg?e=64y3wB", tipo: "" },
+                            { titulo: "GR021 Selcom Midi Supra V2 ecoGO V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28", tipo: "" },
+                            { titulo: "GR020 Fermator VF7 Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K", tipo: "" },
+                            { titulo: "GR019 Fermator VF7+ Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9", tipo: "" },
+                            { titulo: "GR018 Fermator VF7 ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC", tipo: "" },
+                            { titulo: "GR017 Fermator VF5+ ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb", tipo: "" },
+                            { titulo: "GR016 Fermator ECC ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8", tipo: "" },
+                            { titulo: "GR013 Placas ecoGO no intercambiables V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeB1eMWFE_NIv4NczrpMBZgB-qCMa3DYdOL9s0ktTCwHVA?e=rACCNP", tipo: "" },
+                            { titulo: "GR012 Configuración Duplex, Triplex, Cuadruplex con VC V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERJBXYBCcwNBkucN1DGCxusBK7oLlTB7WTP3EACrVcJBjA?e=4qdMZZ", tipo: "" },
+                            { titulo: "GR011 Programación de mensajes de audio V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYYEznunaPpDrQ0o7VOWqpcBxYZZQbVJrEb4vCX6L_uDgA?e=3ClJUP", tipo: "" },
+                            { titulo: "GR010 Configuración distancia de frenado EcoGO con variador EcoDrive V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaInQtn06hlAtXesWESV2nABWGXkY30Gnrcxyqw3yGRHhQ?e=2vgYnp", tipo: "" },
+                            { titulo: "GR009 Actualización de licencia de consola V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeiZ2wpQV7tDuhfnutjLtokBxsiBEPBlJBUgALFOcAlDTg?e=NEsIQw", tipo: "" },
+                            { titulo: "GR008 Configuraciones de la placa Muxcan V02", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ET9MqJQIlmJHiqVOY-zxjOUB-R8ga1HcIVgotS2lz01PJQ?e=hVLfCD", tipo: "" },
+                            { titulo: "GR006 sonidos ecoGO V02", url: "https://mpascensores.sharepoint.com/:w:/s/TechnicalServiceComunications/EQw5CszI1m5DkRMcXf9NIjYBxvHXVj9_vAqvXjZ6ttarOg?e=h0pDBy", tipo: "" },
+                            { titulo: "GR005 Resistencias terminales V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcGlFqww8hVGgz5X2POg7hkBXTN3iUclXji_gHAAYLrZZQ?e=fHQaG5", tipo: "" },
+                            { titulo: "GR004 ADI V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ES5Glq0CgrdFshnQ_1Fs1psBcxGdiGjv7ZOYxR9UgGpyOw?e=0S0LnC", tipo: "" },
+                            { titulo: "GR003 SAB EcoGO V03", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWsJ0H4Etu1EtSaRwz2UsI4BdvFRmh_6Is87CUgpS0tnQA?e=Dd2R2r", tipo: "" },
+                            { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYEvOi7lQQdDi2nzNttWGF4BshPABfh_W-P-5hG8MROEdw?e=HDXMnE", tipo: "" },
+                            { titulo: "GR000 Ajuste alimentación ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcBOLptdnxxHnqjVf_h4HT8B4ctnml5MpxHGkRMG6EK9Pg?e=dcPL0e", tipo: "" },
+                            { titulo: "GRELEcoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeZZieVDEWRBsaapz76otMgBZBrUQ5EpO2WGAF4tRFcKQA?e=6arGIu", tipo: "" },
+                            { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ee1JlTAhTGFAqy26ZbzcP7YBb11s4gX42dgaIHbrpa47VA?e=hAq5bM", tipo: "" },
+                            { titulo: "H000 Mando de montaje ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdPEGPFar0hJv_2UbvEkA2YB-cGCWOuwBqkQB7M1l1mWzA?e=7zecuY", tipo: "r-prefix" },
+                            { titulo: "V011 - Montajes y conexiones de posicionamiento [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCpKwU8hMPIRaB4QhMfkGREAUjNq5CvEVdvgvjDtNipgh4?e=Tugroc", tipo: "ys-prefix" },
+                            { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBhdufAdEm3RqQGUOJIuR5lASqDmGKU099D3Cyojf_cyBo?e=5GugBt", tipo: "y-prefix" },
+                            { titulo: "4. HEAD controller PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCV1KbaVP5zSYFVNz9vnx-tAYJFAdZWBIdJyGAdR1NBQg4?e=8SRhEp", tipo: "y-prefix" },
+                            { titulo: "3. HEAD controller mobile", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBjIA3n3f6XSKr43v6ojevPAZmSyXBDCFjtRs6HsPop6f8?e=bnrgmp", tipo: "y-prefix" },
+                            { titulo: "2. Electrónica Distribuida", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDWMlT4NyL1QbU_SGxMNWwhAehgVtMQoGy-pqqWUh0CDuM?e=fPlWPa", tipo: "y-prefix" },
+                            { titulo: "1. Cuadro ecoGO", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCK8NK0g3MET5stMS9naQJcAYXELBtokaH0NVc_7QQqrBo?e=w8yqoh", tipo: "y-prefix" },
+                            { titulo: "Learning (ES)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/EfZC8SRb7apGpEqAtfPKMJwBWrWiB6xhh2sqtaBOazWTNw?e=hpmmxC", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Eléctrica General",
+                        guias: [
+                            { titulo: "GR027 Errores 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCINdjqhPwdTIyOBfNpFKnFAXk4Y-ammPZld-U1lFyDXBQ?e=MljGtL", tipo: "g-prefix" },
+                            { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdxqP4LBPwhEmX9mQijdHk4BuAPNxbakFIu55yc9y3vThQ?e=Xnhd9O", tipo: "" },
+                            { titulo: "GR007 Reveco cambio sotfware V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EafXVB9PknRPsG5jjIkqfSsB2Fxjk-9D1stNXvl_QJnRAA?e=Wrkulx", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Mecánica General",
+                        guias: [
+                            { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZEi5HF4_VFKn7r_I749M7gBAmiyxzw3PEPBSbPvwGkY8Q?e=RkIeo1", tipo: "" },
+                            { titulo: "GR003 Sab EcoGO V003", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbrFoY6yH7RGh4NTrb2p_2kBbeULHeORi0zfmT5INUfdbw?e=gbe0Il", tipo: "" },
+                            { titulo: "H005 Polea tensora con muelles Gervall V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVzoG7F4hJBDq8NkMEEWOoQBm8jd6D8S685H4bUTkhPlrg?e=km01cS", tipo: "r-prefix" },
+                            { titulo: "H002 Cobianchi unidireccional PC 12TE V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQpP68XZYdNOvx1ZxO_2pBQBZJ-rd-gezJvxpXHjqG5vjw?e=akiTM7", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Microbasic",
+                        guias: [
+                            { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAFUuJXewe1RaHRdpJs_u-DAVfIZWfcGTFbdA4UAWhCcso?e=hmndtA", tipo: "gs-prefix" },
+                            { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
+                            { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Via Serie",
+                        guias: [
+                            { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCXmR2JS0KQSpq87wX-nr8cAdItnkXLggMyaQy6zJovw28?e=LuWIAF", tipo: "gs-prefix" },
+                            { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
+                            { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
+                            { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Hidráulica",
+                        guias: [
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EckBPgSSHAtFkx_7CsPTRw4BU_L3Epa8RCQBI1ttIk4F5g?e=cV2xla", tipo: "g-prefix" },
+                            { titulo: "V010-Sava3 - Renivelacion continua", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAyIWROnxBERbMD4VnpFusrAXswfamM8mhnfNq9YBjBA-0?e=tzz9qS", tipo: "y-prefix" },
+                            { titulo: "V002-Sava3  - Velocidad más lenta de lo normal", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAbuOx2lshnRoCgmUW5VJfKAbaVRotAYS-kdiJr0X1GFUE?e=FnxjW6", tipo: "y-prefix" },
+                            { titulo: "V001-Sava3 - No sube", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQATNwBe40r0SJ1QKp03cdffASlJaqOhOZ4hRB48fd_UFT0?e=sNvuTY", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Otros",
+                        guias: [
+                            { titulo: "H004 Peticion de Bono V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQlY3dTeLeZJii1ocquzyGIBwBn_8iC-1MBSzisl7h5WlA?e=OurcUh", tipo: "r-prefix" }
+                        ]
+                    }
+                ]
+            },
+            {
+                idioma: "Français",
+                claseColor: "french",
+                bandera: "fr",
+                categorias: [
+                    {
+                        nombre: "Portes",
+                        guias: [
+                            { titulo: "GR025 Réglages de l'opérateur SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9SUnhO_NNGlwh2jnb4TpEBsISwqi1gvfTR0X0r6NJxIA?e=gJOpWY", tipo: "" },
+                            { titulo: "H001 Reveco-GO lecture de la taille de la porte avec verrouillage mécanique V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWdhk1LxMQZBnopriy9H1oYBq8rONofaA7192p4hLugwQQ?e=oFghPx", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "EcoGo",
+                        guias: [
+                            { titulo: "GR033 GUIDE RAPIDE ECOGOTOOLS – ENTRETIEN FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAEMUPdaoXkRIsZRhQc5VkNAVORrJtYknOMFl73WIhAAI0?e=slx0P6", tipo: "gs-prefix" },
+                            { titulo: "GR032 GUIDE RAPIDE ECOGOTOOLS – POUR COMMENCER FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQArGvEYqr53RpnO8slR3I-AAV6h_LKzUlXa2mkGTEI3FzQ?e=YvBfrX", tipo: "gs-prefix" },
+                            { titulo: "GR031 EcoGOTools phase de montage FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDA2UasOVTaSIee3hrMMOc1AYolf-jrsnZUENh1OC8raDs?e=lE6IzD", tipo: "gs-prefix" },                            
+                            { titulo: "GR001 Aimants supplémentaires du système de positionnement ecoGO V07 [𝙢𝙞𝙨 𝙖̀ 𝙟𝙤𝙪𝙧]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCIq-tetYjISabmK_qxW7iiAUI3xUbmiTicVyrpiQnY4cI?e=qaHuTt", tipo: "gs-prefix" },
+                            { titulo: "GR028 Erreures 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB3UGvmS0mATLlhI6YlpnmxAU23H_fMFMDF4LL7PwLljL4?e=kilMgS", tipo: "g-prefix" },
+                            { titulo: "GR024 Configuration Link, appels et S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQSRvE0MtBZIo3KaYkngaUQB6hKyaRKhPCl4m9zs7yH0qg?e=tscvdR", tipo: "" },
+                            { titulo: "GR023 Configuration téléphonique duplex - Enregistrement Sigma S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQqweom41P9Jus0Wvw0EvfABfS5XjOv7TiqexbXt62fckg?e=2WBabC", tipo: "" },
+                            { titulo: "GR022 Configuration de la carte LOB V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXn-HxIs82NAmoJFHsJNRS4Bioc4ZzNh8Ya7Rbzd_CV8og?e=34rv4M", tipo: "" },
+                            { titulo: "GR021 Selcom Midi Supra V2 ecoGO V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ESsUSqtQl0NBj6LjZwICkyYB8swYSTdJkVzwlK7KgGrQdA?e=Enkx28", tipo: "" },
+                            { titulo: "GR020 Fermator VF7 Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcMHhXZLwcRBmdVav4BsGtEBoPCPHacJ7aPgS5s6nAaEfw?e=8ji46K", tipo: "" },
+                            { titulo: "GR019 Fermator VF7+ Relay ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ebohe323QcZIigHRa0LcFw0BcBrhI7xTz8NQp77ETpzMGg?e=QVUvu9", tipo: "" },
+                            { titulo: "GR018 Fermator VF7 ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWoq03tKFEZLnbpLBYzrJfEB7b_cfdJ-W7jopZpOWwh_rA?e=5403xC", tipo: "" },
+                            { titulo: "GR017 Fermator VF5+ ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYUX6NTIZCRDgPbl5d_gE-cBvOrQR8rH2iaGZd2Lt-gidg?e=7Q2jwb", tipo: "" },
+                            { titulo: "GR016 Fermator ECC ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8", tipo: "" },
+                            { titulo: "GR005 Resistances terminasion V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EflutAejI2tDqo-89eJya9UBInnTe9WFRiWBX3DHfvmkKg?e=3t21J4", tipo: "" },
+                            { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZwCMlxJKydMvugWcTAOZFMBRpypp7lqDO5h-Gfh5773LQ?e=eDDArk", tipo: "" },
+                            { titulo: "GR000 ecoGO reglage de l'alimentation V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaAh2yN7_OxIoRgMDSwtNiIB-Ox6Waqc-nrZBCIF_s0-CA?e=YjcAAU", tipo: "" },
+                            { titulo: "GRELecoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbDOY_8ccHRKtsL5PR_c9IIB4nD97M7Rf9eJlsQxsSBFtw?e=yzRb3Q", tipo: "" },
+                            { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfA5Wj1VhFpKjViMgLlcozgBvREVD4cNhLhdjdJaVO3yHg?e=SeMx8d", tipo: "" },
+                            { titulo: "H000 Contrôle de l'assemblage ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYhGyGzUxK1Aqwc9SZVnR1oBst2CxkU_UiM6wh-vpDxBog?e=RvrKzR", tipo: "r-prefix" },
+                            { titulo: "V011 -  Montages et raccordements de positionnement [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBH7SEdFETVSqVL2r7cHkivAe9I-XIGT02B9XdcW7qsTEQ?e=yDDHoB", tipo: "ys-prefix" },
+                            { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB2L9VpxgH_SbI5eQCEW-hdAR7fqjODqh2JZxsL_hXbiZk?e=7pbB9h", tipo: "y-prefix" },
+                            { titulo: "4. HEAD controller pour PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB79detOv9NTpCfWaDI0WYCAUgnk25kDPnbMox2qOkJFHo?e=c0uA7M", tipo: "y-prefix" },
+                            { titulo: "3. HEAD controller pour portable", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBZZU9VecRQQaA_kPJRPgZGAdzAkULK4UcQqRs-86AP5T0?e=r7sp9R", tipo: "y-prefix" },
+                            { titulo: "2. Électronique distribuée", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDFOn8N-SUnT5BZ4Y74J_TEAXtLs_9q6xBlRNd1wjuczBE?e=v3Sk4t", tipo: "y-prefix" },
+                            { titulo: "1. L'armoire de commande MP ecoGO", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDKvRwynsJbS45EInpMDa_SAeqOHVqYjuWuMHlmrAZz8F8?e=zM6kdJ", tipo: "y-prefix" },
+                            { titulo: "Learning (FR)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/ESZ_MQm7PwJLmjP6GXYZed8B9CqUyig5Hc8aVMjM2YwDhg?e=MH6y91", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Électricité générale",
+                        guias: [
+                            { titulo: "GR027 Erreurs 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQARxtNQxxPaSLx_u5t13phaAWfX9AlkcQuvhKv2ivD0ZyI?e=x3Aguw", tipo: "g-prefix" },
+                            { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Mécanique Générale",
+                        guias: [
+                            { titulo: "H005 Poulie de tension à ressort Gervall V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETntwIIjqldKpjzXU544Q_oBOJNaEJNZdtvuAzX7YXNwOg?e=m3kfxt", tipo: "r-prefix" },
+                            { titulo: "H002 Cobianchi unidirectionnel PC 12TE V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EavQ4r64dxFJtqf1hFB7plkB5qA-8WhPvu6MoZyTHCR19g?e=6Z5bsj", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Microbasic",
+                        guias: [
+                            { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCCN-ODAe3fQZbzogZDV-FSAcxuTo77VOLAqp3JRWLXgxA?e=n3Xp60", tipo: "gs-prefix" },
+                            { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Via Serie",
+                        guias: [
+                            { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCl7fKlIAdBRYtsxM3DTF2BAaXk7zTM9whUsJiQM_Ksb8s?e=H4CorQ", tipo: "gs-prefix" },
+                            { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Hydraulique",
+                        guias: [
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdyYjabgz5pGjzW42bTiBSMBQRNBmr-hDG9I3FV0AWBxRQ?e=9WhK6b", tipo: "g-prefix" },
+                            { titulo: "V010-Sava3 - Renivelage continu", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxnjCeuRFkQ7p2ZDmMCPpeAbpqZ50fuUC3_1nol08qblg?e=8tLhIK", tipo: "y-prefix" },
+                            { titulo: "V002-Sava 3 - Vitesse plus lente que la normale", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAF5Hxr95MjRrd_nJ5aJ6v9AWoi8DIbXwxg8jO8w4Ttv54?e=ABx9Qt", tipo: "y-prefix" },
+                            { titulo: "V001-Sava3 - Ne monte pas", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQARBIoMIQNDRao_wbduE_5aAY_4z4voq5rmAH9oktGNrb0?e=r4ZATn", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Autres",
+                        guias: [
+                            { titulo: "H004 Demande de bon V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQOxWxQUiHtIs3YcMkww0nkBca9z_-t6x8pZKERWbYV5kg?e=vw58jb", tipo: "r-prefix" }
+                        ]
+                    }
+                ]
+            },
+            {
+                idioma: "Deutsch",
+                claseColor: "german",
+                bandera: "de",
+                categorias: [
+                    {
+                        nombre: "Türen",
+                        guias: [
+                            { titulo: "H001 Reveco-GO Türgrößenanzeige mit mechanischer Verriegelung V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfyT1ARLuO9Mo3uqVQd3kYMBRqkLgoxhMPU-fNB388DB8g?e=FhoJxt", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "EcoGo",
+                        guias: [                            
+                            { titulo: "GR033 ECOGOTOOLS-KURZANLEITUNG – WARTUNG DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDdwN9gv-g7T61tX-wN1UDmAevPciW1UbU-L8bXxB8Cza8?e=wdzPG3", tipo: "gs-prefix" },
+                            { titulo: "GR032 ECOGOTOOLS-KURZANLEITUNG – ERSTE SCHRITTE DE [neu]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD30VKkCrGbSILu2hb1MSY0AX439RiJJctt4Qo2LdIpuLU?e=UbUiPv", tipo: "gs-prefix" },
+                            { titulo: "GR031 EcoGOTools montagephase DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCp9tryfubWRb_y_VbNagPUAYrX4F2u_hpBC_84a0BR2iw?e=h6ctmy", tipo: "gs-prefix" },
+                            { titulo: "GR001 Zusätzliche magnete des EcoGO ortugssystems V07 [𝙖𝙠𝙩𝙪𝙖𝙡𝙞𝙨𝙞𝙚𝙧𝙩]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBG45HkjQy1SaD-1ekGrirgAcL3Rvv692xIU93v5G8iBMA?e=fecYVi", tipo: "gs-prefix" },
+                            { titulo: "H000 ecoGO Montagekontrolle V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaxvL5PitDtDtKsMHQ9msxoBh-ucLSXjwfXW3T69SKLMaw?e=mjdyD1", tipo: "r-prefix" },
+                            { titulo: "V011 -  Befestigungen und Positionierungsverbindungen [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8qjsa_aYIQ7tH5ATegxBkAa0pwmkgwAsdmeKU6ewvoNM?e=aJUjY7", tipo: "ys-prefix" },
+                            { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDsWwVL5qZEQIXRect7luqlAZ1eAhkoKee4I_5_pXa5n4I?e=bIvEmO", tipo: "y-prefix" },
+                            { titulo: "4. HEAD-Controller für PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCztObRUIb0Q6hCmcV_TGN8AYnSjaKUEMX5iREA4xfnyFo?e=c6aLap", tipo: "y-prefix" },
+                            { titulo: "3. HEAD Controllers über mobiles", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDtWMpaAyWiRLW_6YEZDD_UAZ-ZAfxImJUXtk_rj4BqUko?e=mpb7Qk", tipo: "y-prefix" },
+                            { titulo: "2. Verteilte Elektronik", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8eY6QA-FmSqoFLXBSTsjiAZdPC_dr_BCvhgPsOExRKW4?e=riKucx", tipo: "y-prefix" },
+                            { titulo: "1. Schulung Schaltschrank ecoGO", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDq5NngT55LTL5FFkZ8PWqRAeZm1xAkruRZm4m-4b5jO04?e=bmetx6", tipo: "y-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Allgemein Elektrisch",
+                        guias: [
+                            { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Allgemeine Mechanik",
+                        guias: [
+                            { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Microbasic",
+                        guias: [
+                            { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMHRUcgDbLSL-4QrmKhcAvAdi-xZ081j_Yq8gkqjFHJPc?e=YHj4Tx", tipo: "gs-prefix" },
+
+                        ]
+                    },
+                    {
+                        nombre: "Via Serie",
+                        guias: [
+                            { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD0J0Y7o6vXQLodFZ5HnVXqAco1v_NaI9nugNcq5h2A2lg?e=Pjqx8n", tipo: "gs-prefix" },
+                            { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
+                        ]
+                    },
+                    {
+                        nombre: "Hydraulik",
+                        guias: [
+                            { titulo: "V010-Sava3 - Kontinuierliche Nivellierung", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD_TivAPtU5Ra5nBPBGEu6iAQs65HN5icqoIsX2uGoA4UI?e=8TlZFs", tipo: "y-prefix" },
+                            { titulo: "V002-Sava3 - Langsamer als die normale Geschwindigkeit", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCzl5W17HkpTLsnsk-1iFR3AfpXab6NbVS0_BhpydYFrRw?e=cBJBpn", tipo: "y-prefix" },
+                            { titulo: "V001-Sava3 - Nicht oben fährt", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBeAtLllNZxRqm1YfQrmEP6AeEZhgkjXpca9Y0qWKYrNsQ?e=I4vVXi", tipo: "y-prefix" }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        // ======================================================================
+        // CÓDIGO QUE GENERA LA PÁGINA (NO HACE FALTA TOCAR ESTO)
+        // ======================================================================
+        function generarHTML() {
+            const container = document.getElementById('guides-container');
+            let html = '';
+
+            baseDeDatos.forEach(seccionIdioma => {
+                html += `
+                <div class="index-item ${seccionIdioma.claseColor}" onclick="toggleSubIndex(this)">
+                    <span>${seccionIdioma.idioma}</span>
+                    <img src="https://flagcdn.com/w40/${seccionIdioma.bandera}.png" alt="Bandera de ${seccionIdioma.idioma}">
+                </div>
+                <div class="sub-index">`;
+
+                seccionIdioma.categorias.forEach(categoria => {
+                    html += `
+                    <div class="sub-item" onclick="toggleSubIndex(this)">${categoria.nombre}</div>
+                    <div class="sub-index">`;
+
+                    categoria.guias.forEach(guia => {
+                        const claseTipo = guia.tipo ? ` ${guia.tipo}` : '';
+                        html += `
+                        <div class="sub-item third-level${claseTipo}">
+                            <a href="${guia.url}" target="_blank">${guia.titulo}</a>
+                        </div>`;
+                    });
+
+                    html += `</div>`;
+                });
+
+                html += `</div>`;
+            });
+
+            container.innerHTML = html;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Guardar el contenido HTML original de los terceros subíndices
+            generarHTML(); // Dibuja la lista al cargar
+
+            // Guarda el contenido original para el buscador
             document.querySelectorAll('.third-level').forEach(item => {
                 item.setAttribute('data-original', item.innerHTML);
             });
 
-            // Evento para manejar la búsqueda
+            // Lógica del buscador
             document.getElementById('searchInput').addEventListener('input', function () {
                 const filter = this.value.toLowerCase();
                 const guides = document.querySelectorAll('.third-level');
-                const subItems = document.querySelectorAll('.sub-item');
+                const subItems = document.querySelectorAll('.sub-item:not(.third-level)');
                 const subIndices = document.querySelectorAll('.sub-index');
 
                 if (filter.length < 2) {
@@ -1126,7 +625,6 @@
                     return;
                 }
 
-                // Función para resaltar texto coincidente sin alterar enlaces
                 const highlightText = (element, query) => {
                     const originalHTML = element.getAttribute('data-original');
                     const tempElement = document.createElement('div');
@@ -1149,7 +647,6 @@
                     element.innerHTML = tempElement.innerHTML;
                 };
 
-                // Filtrar y resaltar los terceros subíndices
                 guides.forEach(guide => {
                     const text = guide.textContent.toLowerCase();
                     if (text.includes(filter)) {
@@ -1161,7 +658,6 @@
                     }
                 });
 
-                // Mostrar solo los sub-items que contienen guías coincidentes
                 subItems.forEach(subItem => {
                     const subIndex = subItem.nextElementSibling;
                     if (subIndex && subIndex.classList.contains('sub-index')) {
@@ -1178,11 +674,10 @@
                     }
                 });
 
-                // Mantener visibles los índices principales (banderas)
                 document.querySelectorAll('.index-item').forEach(indexItem => {
                     const nextElement = indexItem.nextElementSibling;
                     if (nextElement && nextElement.classList.contains('sub-index')) {
-                        const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item')).some(
+                        const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item:not(.third-level)')).some(
                             subItem => subItem.style.display === 'block'
                         );
                         if (hasVisibleSubItems) {
@@ -1198,14 +693,22 @@
                 });
             });
 
-            // Hacer que los clics en los terceros subíndices abran el enlace correspondiente
-            document.querySelectorAll('.third-level a').forEach(link => {
-                link.parentElement.addEventListener('click', (event) => {
-                    event.stopPropagation(); // Evita interferencias con eventos de los padres
-                    window.open(link.href, '_blank');
+            // Hace que el div completo sea clickable y abra el enlace en pestaña nueva
+            document.querySelectorAll('.third-level').forEach(div => {
+                div.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    const link = div.querySelector('a').href;
+                    window.open(link, '_blank');
+                });
+            });
+            // Evita que el click en el tag <a> dispare el evento 2 veces
+            document.querySelectorAll('.third-level a').forEach(a => {
+                a.addEventListener('click', (event) => {
+                    event.stopPropagation();
                 });
             });
         });
     </script>
 </body>
+
 </html>
