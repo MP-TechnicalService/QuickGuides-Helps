@@ -121,7 +121,8 @@
         }
 
         .sub-index .third-level.gs-prefix {
-            background-color: #02ff44;
+            background-color: #87CEFA;
+            /* Azul claro para las nuevas guías */
         }
 
         .sub-index .third-level.rs-prefix {
@@ -132,13 +133,10 @@
             background-color: #90ee90;
         }
 
-        /* Se mantiene el verde estándar para g-prefix */
-
         .sub-index .sub-item a {
             text-decoration: none;
             color: inherit;
             display: block;
-            /* Asegura que el área de clic ocupe toda la caja */
         }
 
         .sub-index .sub-item a:hover {
@@ -178,15 +176,10 @@
         <input type="text" id="searchInput" placeholder="Search for a guide..."
             style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
 
-        <!-- El contenedor donde se generan las guías automáticamente -->
         <div id="guides-container"></div>
     </div>
 
     <script>
-        // ======================================================================
-        // BASE DE DATOS DE GUÍAS
-        // Para añadir nuevas, simplemente inserta una nueva línea { titulo: "", url: "", tipo: "" }
-        // ======================================================================
         const baseDeDatos = [
             {
                 idioma: "English",
@@ -196,6 +189,8 @@
                     {
                         nombre: "Doors",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR039 Syngo Relés Operator Help Appendix v.00 [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDvJ1DX3cfzQJG01nWWzB3XASXo_t4N_9zfCo3EJzgKh5E?e=LROd94", tipo: "gs-prefix" },
                             { titulo: "GR025 Syngo operator settings V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec-ndwMMiCRPr9ZanBWpQlcBjrl1NzWezZZnjW3fdEJOSg?e=C4fk19", tipo: "" },
                             { titulo: "GR007 Reveco software change V01", url: "https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS%2FGR007%20Reveco%20software%20change%20V01%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS", tipo: "" },
                             { titulo: "H001 Reveco-GO door size reading with mechanical interlocking V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9VIP92e-JCnnuRQOcAn-0BnLDAFtGomhk0LZOOZhlMWw?e=bGh8sb", tipo: "r-prefix" }
@@ -204,11 +199,14 @@
                     {
                         nombre: "EcoGo",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR033 ECOGOTOOLS QUICK GUIDE – MAINTENANCE ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAfzHuKACsDS6YRrGyoxJxBAaVb6p5hX1aHSxGz09DTsfg?e=eVFfp5", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
                             { titulo: "GR032 ECOGOTOOLS QUICK GUIDE – GETTING STARTED ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQApEAhuuNlNRpJgJq7_Z8dPAa5vUbPoICvcgR_ChBI_Yic?e=XuSy4b", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools assembly stage ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDsrzeG622sSJKjYIGvWTfYAS8-99Eh2TXOSBXv4WtpHqc?e=f8Ub6P", tipo: "gs-prefix" },
-                            { titulo: "GR001 Additional magnets for ecoGO positioning system V07 [𝙪𝙥𝙙𝙖𝙩𝙚𝙙]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYOWAD2q4zQYTDMRsOkYhHAdK7H9g3dRmFPYf-u0bCQko?e=dmpOTu", tipo: "gs-prefix" },
-                            { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYGQFYs6ZiRYl37sMqYX0QAXRMQLCkTVrD4Z5GhxzsbvA?e=pCrcs2", tipo: "g-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00 EN [𝙪𝙥𝙙𝙖𝙩𝙚𝙙]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYGQFYs6ZiRYl37sMqYX0QAXRMQLCkTVrD4Z5GhxzsbvA?e=pCrcs2", tipo: "gs-prefix" },
                             { titulo: "GR024 Link configuration, calls and S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaGZJ0e2LU1OtmtMDeNWVhoBojM2c5i0rcwXI76iPecU0w?e=fdeWcG", tipo: "" },
                             { titulo: "GR023 Duplex telephony configuration - Sigma registration ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeT9P1E8lgNHqXX2F6Cy6_kBSlAGy8LAk-4sANJMYCuStg?e=9OV3tN", tipo: "" },
                             { titulo: "GR022 LOB board configuration V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERqDdgGLh3JLiK3WPEjoG68BnyBP28moHQgwpqWQ_7fxbg?e=lm6iP3", tipo: "" },
@@ -229,11 +227,12 @@
                             { titulo: "GR004 ADI V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfkxIcmbj1pCrgbq9lI2bNYB_hI8NZbSj91yCQcMRfEsWQ?e=Pgdfxf", tipo: "" },
                             { titulo: "GR003 SAB ecoGO V03", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWrZPrXk_PtNukpy_SjBg8sBOtPgibJ53lcjWkxDYkcAUg?e=eThNIr", tipo: "" },
                             { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EalFgZJaljBIqVbS7W6Bv0sBy6zLm45yhefcj88m_9C8mA?e=2xq7xG", tipo: "" },
+                            { titulo: "GR001 Additional magnets for ecoGO positioning system V07", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYOWAD2q4zQYTDMRsOkYhHAdK7H9g3dRmFPYf-u0bCQko?e=dmpOTu", tipo: "" },
                             { titulo: "GR000 EcoGO power adjustment V00", url: "https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO%2FGR000%20ecoGO%20power%20adjustment%20V00%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FECOGO", tipo: "" },
                             { titulo: "GRELecoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYHKfzH65BVPkVv183tYQ04BEmDy4LJTicnjlwuwwGvm1A?e=DyWfvg", tipo: "" },
                             { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWfNOXEFxZRPrKFxp67OUZsBJwJKdcIHRfn4WKTQTie1CQ?e=Ae2CI3", tipo: "" },
                             { titulo: "H000 ecoGO assembly drive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Eam52e1QK2pDp9ZxQrAJ5tYBne6H-CKPtaHjlJqnzE5nJQ?e=PoTZWH", tipo: "r-prefix" },
-                            { titulo: "V011 -  Mountings and positioning connections [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAufAKNC5dCSIet06SMfoW0AdC2Fb20rUEfAlXqWlrv248?e=hkUMtz", tipo: "ys-prefix" },
+                            { titulo: "V011 - Mountings and positioning connections", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAufAKNC5dCSIet06SMfoW0AdC2Fb20rUEfAlXqWlrv248?e=hkUMtz", tipo: "y-prefix" },
                             { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCzX35os3ljRJJ26fdEocZmAZBsU6iQ89XIUM3buGCdapg?e=9dUOtT", tipo: "y-prefix" },
                             { titulo: "4. HEAD controller PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDPfnTI19eUQqtgeTtV5GjfAYY0bYGk5_fW1dNcsc0jmg0?e=eDPGdg", tipo: "y-prefix" },
                             { titulo: "3. HEAD controller mobile", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxdj3yinNGTp74jGAmOl6NAb1iCcmTTUsVMmkrJYuAX08?e=9FcKOF", tipo: "y-prefix" },
@@ -245,7 +244,7 @@
                     {
                         nombre: "General Electric",
                         guias: [
-                            { titulo: "GR027 Errors 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAn5jdmXdbARpSOZmPDOXCIAWhENqtRNYr_7xK1FqDfgMc?e=vlwKw2", tipo: "g-prefix" },
+                            { titulo: "GR027 Errors 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAn5jdmXdbARpSOZmPDOXCIAWhENqtRNYr_7xK1FqDfgMc?e=vlwKw2", tipo: "" },
                             { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EX3owe4tq8ZJmGRG6ryTI9QBv2GABGq1Sy-9S2opSiAAdw?e=fbVJDT", tipo: "" },
                             { titulo: "GR007 Reveco software change V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETx4uAGE2jBGkhqKipFYBiIB17b1bgDwulu4mOw3CQznBA?e=USYjEI", tipo: "" },
                             { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ETWalywUclxOiamwfBn6cYsBzmANDZxcBKvbin4npxXyIg?e=gDHI8D", tipo: "r-prefix" }
@@ -263,6 +262,7 @@
                     {
                         nombre: "Microbasic",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBq8ettWjpRRoAhY0n7r_z6AQuxHQhHm0EOXTHZyI21Jf8?e=LngnDT", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
                             { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
@@ -272,6 +272,7 @@
                     {
                         nombre: "Via Serie",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMJaSXvnu8SISw7kxdgaJNAT9l7ayCJICTnax7ITAne3Y?e=fj8W4u", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
                             { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
@@ -281,7 +282,7 @@
                     {
                         nombre: "Hydraulic",
                         guias: [
-                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdUL7_lnZThBl3CpeBeJj7kBMX6KbEvdlVCxCIXvhGT6pA?e=HHer5V", tipo: "g-prefix" },
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdUL7_lnZThBl3CpeBeJj7kBMX6KbEvdlVCxCIXvhGT6pA?e=HHer5V", tipo: "" },
                             { titulo: "V010-Sava3 - Continuous releveling", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAGtrUSUKD0S6Osp0UCIwW9ATOHnW1Z2Tlsgv_lDpQnx0w?e=F9i6Gc", tipo: "y-prefix" },
                             { titulo: "V002-Sava3 - Slower than normal speed", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCsMLftquJLQptEwyCZzRGzAT9vwgU7c8ssdorSgFla6SY?e=PZGDQr", tipo: "y-prefix" },
                             { titulo: "V001-Sava3 - Does not travel upward", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBTetZnRJILRZPuWkaHO-b7Ae-vbEsVDNF0V3ON_UL7W9M?e=0fierg", tipo: "y-prefix" }
@@ -303,6 +304,8 @@
                     {
                         nombre: "Puertas",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR039 Anexo de Ayuda Operador Syngo Relés v.00 [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBGIMrIl_kmRq5JzmdP_oZwAU6cbOZLyThXFoKk7hNfyI4?e=XUljSe", tipo: "gs-prefix" },
                             { titulo: "GR025 Ajustes operador SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EY9-quvvBkRGoWFDqzN3ufAB0Gk9b9gJRSZfL7W2xNtsxA?e=M3pwPH", tipo: "" },
                             { titulo: "GR007 Reveco cambio sotfware V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdTX3XSXuXFJofngJnaef0gBMD2aDFB6Qj6M2whDkPJgiw?e=DPmumI", tipo: "" },
                             { titulo: "H001 Lectura del tamaño de la puerta Reveco-GO con enclavamiento mecánico V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EW0-HSSz0fhMltIrS1MB2NAB-x6eESbSgthlfIUpefLsyQ?e=2AANC2", tipo: "r-prefix" }
@@ -311,11 +314,14 @@
                     {
                         nombre: "EcoGo",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR033 Guía Rápida ecoGotools – Mantenimiento ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAKYN5C_3oDR5Ad9mzESpK8ASf-lMJCm6k4GZo_Go048yY?e=P0qgg0", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
                             { titulo: "GR032 Guía Rápida ecoGotools – Puesta en Marcha ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCxNd18wc9AS7tFeJJLxUHOATRjMl-H-CZzYWb17OrU5oc?e=oR7j8C", tipo: "gs-prefix" },
-                            { titulo: "GR031 EcoGOTools fase de montaje ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQClLurVuQjWT6GreUw8yof4AWDS6RiRudAboN80uY0JU_o?e=nLv41O", tipo: "gs-prefix" },                            
-                            { titulo: "GR001 Imanes adicionales del sistema de posicionamiento ecoGO V07 [𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDXQgzU-Ir7SoE-3nOVaKPKATsMzcAos6x0E39_UHvvFX8?e=Kc0prw", tipo: "gs-prefix" },
-                            { titulo: "GR028 Errores 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCZm0zWVpSQTJE0vJZbvEPyAeTUiCJ8lBIH3boUJgDMJyw?e=axmB4Q", tipo: "g-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR031 EcoGOTools fase de montaje ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQClLurVuQjWT6GreUw8yof4AWDS6RiRudAboN80uY0JU_o?e=nLv41O", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR028 Errores 06.18.06-17-20 EcoDrive V00 ESP [𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCZm0zWVpSQTJE0vJZbvEPyAeTUiCJ8lBIH3boUJgDMJyw?e=axmB4Q", tipo: "gs-prefix" },
                             { titulo: "GR024 Configuración Link, llamadas y S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWJDMxSCp3JAmdzh-_HGStcBeb7_AFVg8DoLGYKZkPgahQ?e=dG6TDg", tipo: "" },
                             { titulo: "GR023 Configuración telefonía duplex - alta Sigma EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ER9KW6qqYTtGmiEXuOgVozoBuG0i_Difu2azR6kXNbYiTg?e=3vnYmJ", tipo: "" },
                             { titulo: "GR022 Configuración placa LOB V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQ5rXyloNrtIntDkUJ9mJSsBB7W1p7sTurZ5YyQtNTH-pg?e=64y3wB", tipo: "" },
@@ -336,11 +342,12 @@
                             { titulo: "GR004 ADI V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ES5Glq0CgrdFshnQ_1Fs1psBcxGdiGjv7ZOYxR9UgGpyOw?e=0S0LnC", tipo: "" },
                             { titulo: "GR003 SAB EcoGO V03", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWsJ0H4Etu1EtSaRwz2UsI4BdvFRmh_6Is87CUgpS0tnQA?e=Dd2R2r", tipo: "" },
                             { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYEvOi7lQQdDi2nzNttWGF4BshPABfh_W-P-5hG8MROEdw?e=HDXMnE", tipo: "" },
+                            { titulo: "GR001 Imanes adicionales del sistema de posicionamiento ecoGO V07", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDXQgzU-Ir7SoE-3nOVaKPKATsMzcAos6x0E39_UHvvFX8?e=Kc0prw", tipo: "" },
                             { titulo: "GR000 Ajuste alimentación ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EcBOLptdnxxHnqjVf_h4HT8B4ctnml5MpxHGkRMG6EK9Pg?e=dcPL0e", tipo: "" },
                             { titulo: "GRELEcoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeZZieVDEWRBsaapz76otMgBZBrUQ5EpO2WGAF4tRFcKQA?e=6arGIu", tipo: "" },
                             { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ee1JlTAhTGFAqy26ZbzcP7YBb11s4gX42dgaIHbrpa47VA?e=hAq5bM", tipo: "" },
                             { titulo: "H000 Mando de montaje ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdPEGPFar0hJv_2UbvEkA2YB-cGCWOuwBqkQB7M1l1mWzA?e=7zecuY", tipo: "r-prefix" },
-                            { titulo: "V011 - Montajes y conexiones de posicionamiento [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCpKwU8hMPIRaB4QhMfkGREAUjNq5CvEVdvgvjDtNipgh4?e=Tugroc", tipo: "ys-prefix" },
+                            { titulo: "V011 - Montajes y conexiones de posicionamiento", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCpKwU8hMPIRaB4QhMfkGREAUjNq5CvEVdvgvjDtNipgh4?e=Tugroc", tipo: "ys-prefix" },
                             { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBhdufAdEm3RqQGUOJIuR5lASqDmGKU099D3Cyojf_cyBo?e=5GugBt", tipo: "y-prefix" },
                             { titulo: "4. HEAD controller PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCV1KbaVP5zSYFVNz9vnx-tAYJFAdZWBIdJyGAdR1NBQg4?e=8SRhEp", tipo: "y-prefix" },
                             { titulo: "3. HEAD controller mobile", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBjIA3n3f6XSKr43v6ojevPAZmSyXBDCFjtRs6HsPop6f8?e=bnrgmp", tipo: "y-prefix" },
@@ -352,7 +359,7 @@
                     {
                         nombre: "Eléctrica General",
                         guias: [
-                            { titulo: "GR027 Errores 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCINdjqhPwdTIyOBfNpFKnFAXk4Y-ammPZld-U1lFyDXBQ?e=MljGtL", tipo: "g-prefix" },
+                            { titulo: "GR027 Errores 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCINdjqhPwdTIyOBfNpFKnFAXk4Y-ammPZld-U1lFyDXBQ?e=MljGtL", tipo: "" },
                             { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdxqP4LBPwhEmX9mQijdHk4BuAPNxbakFIu55yc9y3vThQ?e=Xnhd9O", tipo: "" },
                             { titulo: "GR007 Reveco cambio sotfware V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EafXVB9PknRPsG5jjIkqfSsB2Fxjk-9D1stNXvl_QJnRAA?e=Wrkulx", tipo: "" },
                             { titulo: "H003 Error 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZQ6CR3dLzpHiAEwbxm4OOoBNV4F2SvtaC7Hxz3GWkso2g?e=gcFkUb", tipo: "r-prefix" }
@@ -370,6 +377,7 @@
                     {
                         nombre: "Microbasic",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAFUuJXewe1RaHRdpJs_u-DAVfIZWfcGTFbdA4UAWhCcso?e=hmndtA", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
                             { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
@@ -379,6 +387,7 @@
                     {
                         nombre: "Via Serie",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCXmR2JS0KQSpq87wX-nr8cAdItnkXLggMyaQy6zJovw28?e=LuWIAF", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
                             { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
@@ -388,7 +397,7 @@
                     {
                         nombre: "Hidráulica",
                         guias: [
-                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EckBPgSSHAtFkx_7CsPTRw4BU_L3Epa8RCQBI1ttIk4F5g?e=cV2xla", tipo: "g-prefix" },
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EckBPgSSHAtFkx_7CsPTRw4BU_L3Epa8RCQBI1ttIk4F5g?e=cV2xla", tipo: "" },
                             { titulo: "V010-Sava3 - Renivelacion continua", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAyIWROnxBERbMD4VnpFusrAXswfamM8mhnfNq9YBjBA-0?e=tzz9qS", tipo: "y-prefix" },
                             { titulo: "V002-Sava3  - Velocidad más lenta de lo normal", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAbuOx2lshnRoCgmUW5VJfKAbaVRotAYS-kdiJr0X1GFUE?e=FnxjW6", tipo: "y-prefix" },
                             { titulo: "V001-Sava3 - No sube", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQATNwBe40r0SJ1QKp03cdffASlJaqOhOZ4hRB48fd_UFT0?e=sNvuTY", tipo: "y-prefix" }
@@ -410,6 +419,8 @@
                     {
                         nombre: "Portes",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR039 Annexe du guide de l'utilisateur de Syngo Relés v.00 [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDR_JvN_NxoR5shmNuN2-ENAXOI8vY6GvtRxB3oPFIm950?e=jiMcs5", tipo: "gs-prefix" },
                             { titulo: "GR025 Réglages de l'opérateur SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9SUnhO_NNGlwh2jnb4TpEBsISwqi1gvfTR0X0r6NJxIA?e=gJOpWY", tipo: "" },
                             { titulo: "H001 Reveco-GO lecture de la taille de la porte avec verrouillage mécanique V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWdhk1LxMQZBnopriy9H1oYBq8rONofaA7192p4hLugwQQ?e=oFghPx", tipo: "r-prefix" }
                         ]
@@ -417,11 +428,14 @@
                     {
                         nombre: "EcoGo",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR033 GUIDE RAPIDE ECOGOTOOLS – ENTRETIEN FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAEMUPdaoXkRIsZRhQc5VkNAVORrJtYknOMFl73WIhAAI0?e=slx0P6", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
                             { titulo: "GR032 GUIDE RAPIDE ECOGOTOOLS – POUR COMMENCER FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQArGvEYqr53RpnO8slR3I-AAV6h_LKzUlXa2mkGTEI3FzQ?e=YvBfrX", tipo: "gs-prefix" },
-                            { titulo: "GR031 EcoGOTools phase de montage FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDA2UasOVTaSIee3hrMMOc1AYolf-jrsnZUENh1OC8raDs?e=lE6IzD", tipo: "gs-prefix" },                            
-                            { titulo: "GR001 Aimants supplémentaires du système de positionnement ecoGO V07 [𝙢𝙞𝙨 𝙖̀ 𝙟𝙤𝙪𝙧]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCIq-tetYjISabmK_qxW7iiAUI3xUbmiTicVyrpiQnY4cI?e=qaHuTt", tipo: "gs-prefix" },
-                            { titulo: "GR028 Erreures 06.18.06-17-20 EcoDrive V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB3UGvmS0mATLlhI6YlpnmxAU23H_fMFMDF4LL7PwLljL4?e=kilMgS", tipo: "g-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR031 EcoGOTools phase de montage FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDA2UasOVTaSIee3hrMMOc1AYolf-jrsnZUENh1OC8raDs?e=lE6IzD", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR028 Erreures 06.18.06-17-20 EcoDrive V00 FR [𝙢𝙞𝙨 𝙖̀ 𝙟𝙤𝙪𝙧]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB3UGvmS0mATLlhI6YlpnmxAU23H_fMFMDF4LL7PwLljL4?e=kilMgS", tipo: "gs-prefix" },
                             { titulo: "GR024 Configuration Link, appels et S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQSRvE0MtBZIo3KaYkngaUQB6hKyaRKhPCl4m9zs7yH0qg?e=tscvdR", tipo: "" },
                             { titulo: "GR023 Configuration téléphonique duplex - Enregistrement Sigma S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQqweom41P9Jus0Wvw0EvfABfS5XjOv7TiqexbXt62fckg?e=2WBabC", tipo: "" },
                             { titulo: "GR022 Configuration de la carte LOB V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXn-HxIs82NAmoJFHsJNRS4Bioc4ZzNh8Ya7Rbzd_CV8og?e=34rv4M", tipo: "" },
@@ -433,11 +447,12 @@
                             { titulo: "GR016 Fermator ECC ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXD48eZGf6JMoSvUb4HFrjYB5bZCp40MbJqPiW9BJPiU7Q?e=AWMFV8", tipo: "" },
                             { titulo: "GR005 Resistances terminasion V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EflutAejI2tDqo-89eJya9UBInnTe9WFRiWBX3DHfvmkKg?e=3t21J4", tipo: "" },
                             { titulo: "GR002 TFT Editor ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EZwCMlxJKydMvugWcTAOZFMBRpypp7lqDO5h-Gfh5773LQ?e=eDDArk", tipo: "" },
+                            { titulo: "GR001 Aimants supplémentaires du système de positionnement ecoGO V07", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCIq-tetYjISabmK_qxW7iiAUI3xUbmiTicVyrpiQnY4cI?e=qaHuTt", tipo: "" },
                             { titulo: "GR000 ecoGO reglage de l'alimentation V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaAh2yN7_OxIoRgMDSwtNiIB-Ox6Waqc-nrZBCIF_s0-CA?e=YjcAAU", tipo: "" },
                             { titulo: "GRELecoGO_Sust_ALIM1_ALIM2", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EbDOY_8ccHRKtsL5PR_c9IIB4nD97M7Rf9eJlsQxsSBFtw?e=yzRb3Q", tipo: "" },
                             { titulo: "GRSSP-TD_HEAD_001", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfA5Wj1VhFpKjViMgLlcozgBvREVD4cNhLhdjdJaVO3yHg?e=SeMx8d", tipo: "" },
                             { titulo: "H000 Contrôle de l'assemblage ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYhGyGzUxK1Aqwc9SZVnR1oBst2CxkU_UiM6wh-vpDxBog?e=RvrKzR", tipo: "r-prefix" },
-                            { titulo: "V011 -  Montages et raccordements de positionnement [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBH7SEdFETVSqVL2r7cHkivAe9I-XIGT02B9XdcW7qsTEQ?e=yDDHoB", tipo: "ys-prefix" },
+                            { titulo: "V011 - Montages et raccordements de positionnement", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBH7SEdFETVSqVL2r7cHkivAe9I-XIGT02B9XdcW7qsTEQ?e=yDDHoB", tipo: "y-prefix" },
                             { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB2L9VpxgH_SbI5eQCEW-hdAR7fqjODqh2JZxsL_hXbiZk?e=7pbB9h", tipo: "y-prefix" },
                             { titulo: "4. HEAD controller pour PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQB79detOv9NTpCfWaDI0WYCAUgnk25kDPnbMox2qOkJFHo?e=c0uA7M", tipo: "y-prefix" },
                             { titulo: "3. HEAD controller pour portable", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQBZZU9VecRQQaA_kPJRPgZGAdzAkULK4UcQqRs-86AP5T0?e=r7sp9R", tipo: "y-prefix" },
@@ -449,7 +464,7 @@
                     {
                         nombre: "Électricité générale",
                         guias: [
-                            { titulo: "GR027 Erreurs 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQARxtNQxxPaSLx_u5t13phaAWfX9AlkcQuvhKv2ivD0ZyI?e=x3Aguw", tipo: "g-prefix" },
+                            { titulo: "GR027 Erreurs 06-11-14 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQARxtNQxxPaSLx_u5t13phaAWfX9AlkcQuvhKv2ivD0ZyI?e=x3Aguw", tipo: "" },
                             { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
                         ]
                     },
@@ -463,6 +478,7 @@
                     {
                         nombre: "Microbasic",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCCN-ODAe3fQZbzogZDV-FSAcxuTo77VOLAqp3JRWLXgxA?e=n3Xp60", tipo: "gs-prefix" },
                             { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
                         ]
@@ -470,6 +486,7 @@
                     {
                         nombre: "Via Serie",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCl7fKlIAdBRYtsxM3DTF2BAaXk7zTM9whUsJiQM_Ksb8s?e=H4CorQ", tipo: "gs-prefix" },
                             { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
                         ]
@@ -477,7 +494,7 @@
                     {
                         nombre: "Hydraulique",
                         guias: [
-                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdyYjabgz5pGjzW42bTiBSMBQRNBmr-hDG9I3FV0AWBxRQ?e=9WhK6b", tipo: "g-prefix" },
+                            { titulo: "GR026 Morispain MH2V V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdyYjabgz5pGjzW42bTiBSMBQRNBmr-hDG9I3FV0AWBxRQ?e=9WhK6b", tipo: "" },
                             { titulo: "V010-Sava3 - Renivelage continu", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDxnjCeuRFkQ7p2ZDmMCPpeAbpqZ50fuUC3_1nol08qblg?e=8tLhIK", tipo: "y-prefix" },
                             { titulo: "V002-Sava 3 - Vitesse plus lente que la normale", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQAF5Hxr95MjRrd_nJ5aJ6v9AWoi8DIbXwxg8jO8w4Ttv54?e=ABx9Qt", tipo: "y-prefix" },
                             { titulo: "V001-Sava3 - Ne monte pas", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQARBIoMIQNDRao_wbduE_5aAY_4z4voq5rmAH9oktGNrb0?e=r4ZATn", tipo: "y-prefix" }
@@ -499,18 +516,57 @@
                     {
                         nombre: "Türen",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR039 Syngo Relés – Benutzerhandbuch – Anhang v.00 [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAJFf1PpBH2TolVl6JumShMAUkspwEkvfzBz0dbkolUGhw?e=TaeMcd", tipo: "gs-prefix" },
                             { titulo: "H001 Reveco-GO Türgrößenanzeige mit mechanischer Verriegelung V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfyT1ARLuO9Mo3uqVQd3kYMBRqkLgoxhMPU-fNB388DB8g?e=FhoJxt", tipo: "r-prefix" }
                         ]
                     },
                     {
                         nombre: "EcoGo",
-                        guias: [                            
+                        guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR033 ECOGOTOOLS-KURZANLEITUNG – WARTUNG DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDdwN9gv-g7T61tX-wN1UDmAevPciW1UbU-L8bXxB8Cza8?e=wdzPG3", tipo: "gs-prefix" },
-                            { titulo: "GR032 ECOGOTOOLS-KURZANLEITUNG – ERSTE SCHRITTE DE [neu]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD30VKkCrGbSILu2hb1MSY0AX439RiJJctt4Qo2LdIpuLU?e=UbUiPv", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR032 ECOGOTOOLS-KURZANLEITUNG – ERSTE SCHRITTE DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD30VKkCrGbSILu2hb1MSY0AX439RiJJctt4Qo2LdIpuLU?e=UbUiPv", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools montagephase DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCp9tryfubWRb_y_VbNagPUAYrX4F2u_hpBC_84a0BR2iw?e=h6ctmy", tipo: "gs-prefix" },
-                            { titulo: "GR001 Zusätzliche magnete des EcoGO ortugssystems V07 [𝙖𝙠𝙩𝙪𝙖𝙡𝙞𝙨𝙞𝙚𝙧𝙩]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBG45HkjQy1SaD-1ekGrirgAcL3Rvv692xIU93v5G8iBMA?e=fecYVi", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00 [𝙖𝙠𝙩𝙪𝙖𝙡𝙞𝙨𝙞𝙚𝙧𝙩]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDnBWfANkcsQL4kT3rnoPQ7ASku00W0eFP65n1hmi9DR30?e=tnHD4b", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR022 LOB board Konfiguration [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAgUUa0pngOT6mNRbagfdBhAaIoY6W3nioqsopsPC86QPg?e=ZVCl2X", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR021 Selcom Midi Supra V2 [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBo0HFq67uiTb7ST_ezGCD6AXCaMWnHun1EJKRIb-lihRk?e=y1VhG3", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR019 Fermator VF7+Relay [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAVRnwnD3HpTZ8VpP_ItK-fAcpBZNV9LUl48K0lGhgNdCs?e=N9eeGk", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR017 Fermator VF5+ [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDq5VIPiZBSTrg7sIBuXXECAa1HucibduEUXDCCAHTTIog?e=zac2hP", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR016 Fermator ECC [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAl5LtvS2RfSK-XD-E8es_XATapK57ZvJrw4tArmiUiCj8?e=nC7SVp", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR012 Konfiguration Duplex, Triplex, Quadruplex with VC [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBMu8WW2f-SSay7FP-VgqQ0ARM-6T1FrD27eBmPjwy-RTw?e=Qc9h6x", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR011 Erstellen von Audio nachrichten [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDf_P844HTwQ603HfH_6L6zAdoNqEt4i7n4EdD378-CJmg?e=522TBa", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR010 Bremswege einstellen mit EcoDrive inverter [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB8GwO42d6cSptbj-M9RvFiATAlJv4syHwmlKYPELZKeoY?e=MkFUhK", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR009 console licence upgrade [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD--j6i7Hm1S5aE7oIVHOhcAadNEra_owFwOVLWkMcN3-w?e=ngD7D0", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR008 Konfiguration Muxcan [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAB8MzviI3PT5HqIzWqIeAnAXoB-i94Izlj1tYCdloxdAU?e=Wz7IVE", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR006 Akustische Signale [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBfbIqLTPVnRJD_PofdTD-DAXipA3_v145io9w8Skrusww?e=C3tLd1", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR005 Buskommunikation Prüfen [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDORss1thzGT6C7oSSSE9s2AZJ7ep6RsQtis4bBTJKmosw?e=k5q5iy", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR004 ADI [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCrfW9g16XeT5vFKM79_xbwAaeSt0jCOZ_iXdkYHsae3gY?e=GJJ2Ol", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR003 Sab EcoGO [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCrQxUQA8wnQ7_tcKWu88Y3AYDF_vapHysrpKdlXgLDDZk?e=0070fK", tipo: "gs-prefix" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR002 TFT Editor [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMttgW2zEGQbBD2B7UT462AYJOmR9HrcEW8cfrRng2QQw?e=S2VtYY", tipo: "gs-prefix" },
+                            { titulo: "GR001 Zusätzliche magnete des EcoGO ortugssystems V07", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBG45HkjQy1SaD-1ekGrirgAcL3Rvv692xIU93v5G8iBMA?e=fecYVi", tipo: "" },
+                            // Añadido: 2026-09-14
+                            { titulo: "GR000 ecoGO Spannungsbereich einstellen V00 DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBxQlqFyhVxS74f8hSvUHXRAS-oUTJnGVU5TxDVHDcqp-I?e=tIgMiP", tipo: "gs-prefix" },
                             { titulo: "H000 ecoGO Montagekontrolle V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaxvL5PitDtDtKsMHQ9msxoBh-ucLSXjwfXW3T69SKLMaw?e=mjdyD1", tipo: "r-prefix" },
-                            { titulo: "V011 -  Befestigungen und Positionierungsverbindungen [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8qjsa_aYIQ7tH5ATegxBkAa0pwmkgwAsdmeKU6ewvoNM?e=aJUjY7", tipo: "ys-prefix" },
+                            { titulo: "V011 - Befestigungen und Positionierungsverbindungen", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8qjsa_aYIQ7tH5ATegxBkAa0pwmkgwAsdmeKU6ewvoNM?e=aJUjY7", tipo: "y-prefix" },
                             { titulo: "5. Autotuning (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDsWwVL5qZEQIXRect7luqlAZ1eAhkoKee4I_5_pXa5n4I?e=bIvEmO", tipo: "y-prefix" },
                             { titulo: "4. HEAD-Controller für PC (H)", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQCztObRUIb0Q6hCmcV_TGN8AYnSjaKUEMX5iREA4xfnyFo?e=c6aLap", tipo: "y-prefix" },
                             { titulo: "3. HEAD Controllers über mobiles", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQDtWMpaAyWiRLW_6YEZDD_UAZ-ZAfxImJUXtk_rj4BqUko?e=mpb7Qk", tipo: "y-prefix" },
@@ -521,25 +577,30 @@
                     {
                         nombre: "Allgemein Elektrisch",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR014 Parameter Hilfe Gearless Motoren [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDFGoRbV_pcSKK6QguSaVflAetUOoMK-8xpq2qucIywNnU?e=doWMX7", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
                     },
                     {
                         nombre: "Allgemeine Mechanik",
                         guias: [
+                            // Añadido: 2026-09-14
+                            { titulo: "GR003 Sab EcoGO [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBrbJAU81SaRrbYbGZX10YPATHTDdAXCGkFpmD6hMstcQc?e=9jV5Er", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
                     },
                     {
                         nombre: "Microbasic",
                         guias: [
-                            { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMHRUcgDbLSL-4QrmKhcAvAdi-xZ081j_Yq8gkqjFHJPc?e=YHj4Tx", tipo: "gs-prefix" },
-
+                            // Añadido: 2026-09-14
+                            { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMHRUcgDbLSL-4QrmKhcAvAdi-xZ081j_Yq8gkqjFHJPc?e=YHj4Tx", tipo: "gs-prefix" }
                         ]
                     },
                     {
                         nombre: "Via Serie",
                         guias: [
+                            // Añadido: 2026-09-14
                             { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD0J0Y7o6vXQLodFZ5HnVXqAco1v_NaI9nugNcq5h2A2lg?e=Pjqx8n", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
@@ -556,9 +617,6 @@
             }
         ];
 
-        // ======================================================================
-        // CÓDIGO QUE GENERA LA PÁGINA (NO HACE FALTA TOCAR ESTO)
-        // ======================================================================
         function generarHTML() {
             const container = document.getElementById('guides-container');
             let html = '';
@@ -594,14 +652,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            generarHTML(); // Dibuja la lista al cargar
+            generarHTML();
 
-            // Guarda el contenido original para el buscador
             document.querySelectorAll('.third-level').forEach(item => {
                 item.setAttribute('data-original', item.innerHTML);
             });
 
-            // Lógica del buscador
             document.getElementById('searchInput').addEventListener('input', function () {
                 const filter = this.value.toLowerCase();
                 const guides = document.querySelectorAll('.third-level');
@@ -610,16 +666,16 @@
 
                 if (filter.length < 2) {
                     guides.forEach(guide => {
-                        guide.style.display = 'none';
+                        guide.style.display = ''; 
                         guide.innerHTML = guide.getAttribute('data-original');
                     });
-                    subIndices.forEach(subIndex => subIndex.style.display = 'none');
+                    subIndices.forEach(subIndex => subIndex.style.display = '');
                     subItems.forEach(subItem => {
-                        subItem.style.display = 'block';
+                        subItem.style.display = '';
                         subItem.classList.remove('open');
                     });
                     document.querySelectorAll('.index-item').forEach(indexItem => {
-                        indexItem.style.display = 'flex';
+                        indexItem.style.display = '';
                         indexItem.classList.remove('open');
                     });
                     return;
@@ -693,7 +749,6 @@
                 });
             });
 
-            // Hace que el div completo sea clickable y abra el enlace en pestaña nueva
             document.querySelectorAll('.third-level').forEach(div => {
                 div.addEventListener('click', (event) => {
                     event.stopPropagation();
@@ -701,7 +756,6 @@
                     window.open(link, '_blank');
                 });
             });
-            // Evita que el click en el tag <a> dispare el evento 2 veces
             document.querySelectorAll('.third-level a').forEach(a => {
                 a.addEventListener('click', (event) => {
                     event.stopPropagation();
