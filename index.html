@@ -1,185 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QUICK GUIDES & HELPS</title>
     <link rel="shortcut icon" href="img/LogoMP.png" type="image/x-icon">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Inter', sans-serif;
+            /* Fondo degradado moderno */
             background: linear-gradient(135deg, #d0e7ff, #b3d1ff, #e6f2ff);
+            margin: 0;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            height: 100vh;
-            margin: 0;
-            color: #333;
+            overflow: hidden; /* Evitar scroll en el body, el scroll va en la tarjeta */
         }
 
-        .container {
-            background-color: #ffffff;
-            padding: 40px 30px 20px;
+        /* Personalización de la barra de desplazamiento (Scrollbar) */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            width: 680px;
-            margin-top: 20px;
-            height: 80vh;
-            overflow-y: auto;
-            position: relative;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
         }
 
-        .logo-abs {
-            position: absolute;
-            top: 35px;
-            left: 35px;
-            height: 56px;
-            width: auto;
+        /* Animación suave para los acordeones usando CSS Grid */
+        .accordion-content {
+            display: grid;
+            grid-template-rows: 0fr;
+            transition: grid-template-rows 0.3s ease-in-out;
+        }
+        .accordion-content.is-open {
+            grid-template-rows: 1fr;
+        }
+        /* Este contenedor interno evita que el padding "fuge" cuando el alto es 0 */
+        .accordion-inner {
+            overflow: hidden;
+            min-height: 0;
+            width: 100%;
         }
 
-        .container h1 {
-            color: #8B0000;
-            font-size: 24px;
-            text-align: center;
-            margin: 0;
-            padding-top: 10px;
-            margin-bottom: 30px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        /* Transición de los iconos de flecha (Chevron) */
+        .chevron {
+            transition: transform 0.3s ease-in-out;
         }
-
-        .index-item {
-            font-size: 18px;
-            font-weight: bold;
-            color: #fff;
-            margin: 15px 0;
-            cursor: pointer;
-            text-align: left;
-            padding: 10px;
-            border-radius: 5px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .index-item img {
-            width: 35px;
-            height: 25px;
-            object-fit: cover;
-            border-radius: 3px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .index-item:hover {
-            opacity: 0.9;
-        }
-
-        .english,
-        .spanish,
-        .french,
-        .german {
-            background-color: #e0e0e0;
-            color: #333333;
-        }
-
-        .sub-index {
-            display: none;
-            font-size: 16px;
-            text-align: left;
-            margin-left: 20px;
-        }
-
-        .index-item.open+.sub-index {
-            display: block;
-        }
-
-        .sub-index .sub-item {
-            background-color: #b0c4de;
-            color: #333;
-            margin: 8px 0;
-            cursor: pointer;
-            padding: 8px;
-            border-radius: 5px;
-        }
-
-        .sub-index .third-level {
-            background-color: #90ee90;
-            color: #000000;
-        }
-
-        .sub-index .third-level.r-prefix {
-            background-color: #ff9999;
-        }
-
-        .sub-index .third-level.y-prefix {
-            background-color: #feff77;
-        }
-
-        .sub-index .third-level.ys-prefix {
-            background-color: #fffd22;
-        }
-
-        .sub-index .third-level.gs-prefix {
-            background-color: #87CEFA;
-            /* Azul claro para las nuevas guías */
-        }
-
-        .sub-index .third-level.rs-prefix {
-            background-color: #ff4d4d;
-        }
-
-        .sub-index .third-level.g-prefix {
-            background-color: #90ee90;
-        }
-
-        .sub-index .sub-item a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .sub-index .sub-item a:hover {
-            text-decoration: underline;
-            color: #004080;
-        }
-
-        .sub-index .sub-item:hover {
-            opacity: 0.9;
-        }
-
-        mark {
-            background-color: yellow;
-            color: black;
-            font-weight: bold;
-            padding: 0 2px;
-            border-radius: 3px;
+        button.is-expanded .chevron {
+            transform: rotate(90deg);
         }
     </style>
-    <script>
-        function toggleSubIndex(element) {
-            element.classList.toggle('open');
-            const nextElement = element.nextElementSibling;
-            if (nextElement && nextElement.classList.contains('sub-index')) {
-                nextElement.style.display = nextElement.style.display === 'block' ? 'none' : 'block';
-            }
-        }
-    </script>
 </head>
 
-<body>
-    <div class="container">
-        <div class="header">
-            <img src="img/LogoMP.png" alt="Logo MP" class="logo-abs" />
-            <h1>Quick Guides & Helps</h1>
-        </div>
-        <input type="text" id="searchInput" placeholder="Search for a guide..."
-            style="width: 96%; padding: 10px; margin: 10px 0; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;">
+<body class="p-4 sm:p-8">
 
-        <div id="guides-container"></div>
-    </div>
+    <!-- Tarjeta Principal con efecto Glassmorphism -->
+    <main class="w-full max-w-3xl bg-white/90 backdrop-blur-xl rounded-2xl shadow-2xl flex flex-col h-full max-h-[90vh] border border-white/40 overflow-hidden">
+        
+        <!-- Cabecera Fija -->
+        <header class="p-6 border-b border-slate-200 bg-white/50 z-10 shrink-0">
+            <div class="flex items-center justify-between mb-6">
+                <img src="img/LogoMP.png" alt="Logo MP" class="h-10 sm:h-14 w-auto object-contain">
+                <h1 class="text-xl sm:text-2xl font-extrabold text-[#8B0000] uppercase tracking-wider text-right ml-4">
+                    Quick Guides & Helps
+                </h1>
+            </div>
+
+            <!-- Barra de Búsqueda -->
+            <div class="relative group">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
+                    <svg class="w-5 h-5 text-slate-400 group-focus-within:text-brand-light transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                </div>
+                <input type="text" id="searchInput" 
+                    class="w-full pl-11 pr-10 py-3 bg-slate-50 border border-slate-200 text-slate-900 rounded-xl focus:ring-2 focus:ring-slate-400 focus:border-slate-400 focus:bg-white outline-none transition-all placeholder:text-slate-400 shadow-sm text-sm sm:text-base" 
+                    placeholder="Search for a guide (e.g. 'ecoGO', 'doors')...">
+                
+                <!-- Botón Limpiar Búsqueda -->
+                <button id="clearSearchBtn" class="absolute inset-y-0 right-0 flex items-center pr-3 hidden text-slate-400 hover:text-slate-600 focus:outline-none" title="Clear search">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+
+            <!-- Controles Globales -->
+            <div class="flex justify-end mt-3 gap-4">
+                <button id="expandAllBtn" class="text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors focus:outline-none">Expand All</button>
+                <button id="collapseAllBtn" class="text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors focus:outline-none">Collapse All</button>
+            </div>
+        </header>
+
+        <!-- Contenedor de Guías (Scrollable) -->
+        <div class="flex-1 overflow-y-auto p-4 sm:p-6" id="guides-container">
+            <!-- El contenido se genera dinámicamente con JavaScript -->
+        </div>
+
+    </main>
 
     <script>
+        // La base de datos completa proporcionada
         const baseDeDatos = [
             {
                 idioma: "English",
@@ -189,7 +117,6 @@
                     {
                         nombre: "Doors",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR039 Syngo Relés Operator Help Appendix v.00 [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDvJ1DX3cfzQJG01nWWzB3XASXo_t4N_9zfCo3EJzgKh5E?e=LROd94", tipo: "gs-prefix" },
                             { titulo: "GR025 Syngo operator settings V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec-ndwMMiCRPr9ZanBWpQlcBjrl1NzWezZZnjW3fdEJOSg?e=C4fk19", tipo: "" },
                             { titulo: "GR007 Reveco software change V01", url: "https://mpascensores.sharepoint.com/sites/TechnicalServiceComunications/Shared%20Documents/Forms/AllItems.aspx?id=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS%2FGR007%20Reveco%20software%20change%20V01%20EN%2Epdf&viewid=2667d2de%2Dd098%2D4448%2Da8f9%2D9a86c1dba417&parent=%2Fsites%2FTechnicalServiceComunications%2FShared%20Documents%2FWEB%2FQUICK%20GUIDES%2FENGLISH%2FDOORS", tipo: "" },
@@ -199,13 +126,9 @@
                     {
                         nombre: "EcoGo",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR033 ECOGOTOOLS QUICK GUIDE – MAINTENANCE ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAfzHuKACsDS6YRrGyoxJxBAaVb6p5hX1aHSxGz09DTsfg?e=eVFfp5", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR032 ECOGOTOOLS QUICK GUIDE – GETTING STARTED ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQApEAhuuNlNRpJgJq7_Z8dPAa5vUbPoICvcgR_ChBI_Yic?e=XuSy4b", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools assembly stage ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDsrzeG622sSJKjYIGvWTfYAS8-99Eh2TXOSBXv4WtpHqc?e=f8Ub6P", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00 EN [𝙪𝙥𝙙𝙖𝙩𝙚𝙙]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAYGQFYs6ZiRYl37sMqYX0QAXRMQLCkTVrD4Z5GhxzsbvA?e=pCrcs2", tipo: "gs-prefix" },
                             { titulo: "GR024 Link configuration, calls and S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaGZJ0e2LU1OtmtMDeNWVhoBojM2c5i0rcwXI76iPecU0w?e=fdeWcG", tipo: "" },
                             { titulo: "GR023 Duplex telephony configuration - Sigma registration ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EeT9P1E8lgNHqXX2F6Cy6_kBSlAGy8LAk-4sANJMYCuStg?e=9OV3tN", tipo: "" },
@@ -262,7 +185,6 @@
                     {
                         nombre: "Microbasic",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBq8ettWjpRRoAhY0n7r_z6AQuxHQhHm0EOXTHZyI21Jf8?e=LngnDT", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
                             { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
@@ -272,7 +194,6 @@
                     {
                         nombre: "Via Serie",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 REPLACEMENT OF AN EMT-2 DISPLAY WITH A TFT-043 (DMG) ENG [𝙣𝙚𝙬]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMJaSXvnu8SISw7kxdgaJNAT9l7ayCJICTnax7ITAne3Y?e=fj8W4u", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB with MB and VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXwtqeIYku5OkqP1QN8p9G8BsvGJgXQpVCTfBolZ9St0TQ?e=ibP0db", tipo: "" },
                             { titulo: "GR014 Parameters for gearless drivers V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EXuKta-mPCRPsoLp23CDc7ABQEvVUUbqQmpHRDabrpIDIg?e=VevnFG", tipo: "" },
@@ -304,7 +225,6 @@
                     {
                         nombre: "Puertas",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR039 Anexo de Ayuda Operador Syngo Relés v.00 [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBGIMrIl_kmRq5JzmdP_oZwAU6cbOZLyThXFoKk7hNfyI4?e=XUljSe", tipo: "gs-prefix" },
                             { titulo: "GR025 Ajustes operador SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EY9-quvvBkRGoWFDqzN3ufAB0Gk9b9gJRSZfL7W2xNtsxA?e=M3pwPH", tipo: "" },
                             { titulo: "GR007 Reveco cambio sotfware V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EdTX3XSXuXFJofngJnaef0gBMD2aDFB6Qj6M2whDkPJgiw?e=DPmumI", tipo: "" },
@@ -314,13 +234,9 @@
                     {
                         nombre: "EcoGo",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR033 Guía Rápida ecoGotools – Mantenimiento ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAKYN5C_3oDR5Ad9mzESpK8ASf-lMJCm6k4GZo_Go048yY?e=P0qgg0", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR032 Guía Rápida ecoGotools – Puesta en Marcha ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCxNd18wc9AS7tFeJJLxUHOATRjMl-H-CZzYWb17OrU5oc?e=oR7j8C", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools fase de montaje ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQClLurVuQjWT6GreUw8yof4AWDS6RiRudAboN80uY0JU_o?e=nLv41O", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR028 Errores 06.18.06-17-20 EcoDrive V00 ESP [𝙖𝙘𝙩𝙪𝙖𝙡𝙞𝙯𝙖𝙙𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCZm0zWVpSQTJE0vJZbvEPyAeTUiCJ8lBIH3boUJgDMJyw?e=axmB4Q", tipo: "gs-prefix" },
                             { titulo: "GR024 Configuración Link, llamadas y S4L EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWJDMxSCp3JAmdzh-_HGStcBeb7_AFVg8DoLGYKZkPgahQ?e=dG6TDg", tipo: "" },
                             { titulo: "GR023 Configuración telefonía duplex - alta Sigma EcoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ER9KW6qqYTtGmiEXuOgVozoBuG0i_Difu2azR6kXNbYiTg?e=3vnYmJ", tipo: "" },
@@ -377,7 +293,6 @@
                     {
                         nombre: "Microbasic",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAFUuJXewe1RaHRdpJs_u-DAVfIZWfcGTFbdA4UAWhCcso?e=hmndtA", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
                             { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
@@ -387,7 +302,6 @@
                     {
                         nombre: "Via Serie",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 Sustitución de un display EMT-2 a DMG ESP [𝙣𝙪𝙚𝙫𝙤]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCXmR2JS0KQSpq87wX-nr8cAdItnkXLggMyaQy6zJovw28?e=LuWIAF", tipo: "gs-prefix" },
                             { titulo: "GR015 SAB con MB y VS V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERX59j1V92NOlimFoi_5qjwB1WlqDKSpSzYwOas8HwxITw?e=fBoarX", tipo: "" },
                             { titulo: "GR014 Parámetros para máquinas gearless V01", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EVZ8JJmNwMFJgBSMugIyT14ByRB3-r5xh-z18S3ZOcDBWw?e=CaVLA3", tipo: "" },
@@ -419,7 +333,6 @@
                     {
                         nombre: "Portes",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR039 Annexe du guide de l'utilisateur de Syngo Relés v.00 [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDR_JvN_NxoR5shmNuN2-ENAXOI8vY6GvtRxB3oPFIm950?e=jiMcs5", tipo: "gs-prefix" },
                             { titulo: "GR025 Réglages de l'opérateur SynGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/Ec9SUnhO_NNGlwh2jnb4TpEBsISwqi1gvfTR0X0r6NJxIA?e=gJOpWY", tipo: "" },
                             { titulo: "H001 Reveco-GO lecture de la taille de la porte avec verrouillage mécanique V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EWdhk1LxMQZBnopriy9H1oYBq8rONofaA7192p4hLugwQQ?e=oFghPx", tipo: "r-prefix" }
@@ -428,13 +341,9 @@
                     {
                         nombre: "EcoGo",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR033 GUIDE RAPIDE ECOGOTOOLS – ENTRETIEN FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAEMUPdaoXkRIsZRhQc5VkNAVORrJtYknOMFl73WIhAAI0?e=slx0P6", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR032 GUIDE RAPIDE ECOGOTOOLS – POUR COMMENCER FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQArGvEYqr53RpnO8slR3I-AAV6h_LKzUlXa2mkGTEI3FzQ?e=YvBfrX", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools phase de montage FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDA2UasOVTaSIee3hrMMOc1AYolf-jrsnZUENh1OC8raDs?e=lE6IzD", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR028 Erreures 06.18.06-17-20 EcoDrive V00 FR [𝙢𝙞𝙨 𝙖̀ 𝙟𝙤𝙪𝙧]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB3UGvmS0mATLlhI6YlpnmxAU23H_fMFMDF4LL7PwLljL4?e=kilMgS", tipo: "gs-prefix" },
                             { titulo: "GR024 Configuration Link, appels et S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQSRvE0MtBZIo3KaYkngaUQB6hKyaRKhPCl4m9zs7yH0qg?e=tscvdR", tipo: "" },
                             { titulo: "GR023 Configuration téléphonique duplex - Enregistrement Sigma S4L ecoGO V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EQqweom41P9Jus0Wvw0EvfABfS5XjOv7TiqexbXt62fckg?e=2WBabC", tipo: "" },
@@ -478,7 +387,6 @@
                     {
                         nombre: "Microbasic",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCCN-ODAe3fQZbzogZDV-FSAcxuTo77VOLAqp3JRWLXgxA?e=n3Xp60", tipo: "gs-prefix" },
                             { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
                         ]
@@ -486,7 +394,6 @@
                     {
                         nombre: "Via Serie",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 REMPLACEMENT D'UN ÉCRAN EMT-2 PAR UN TFT-043 (DMG) FR [𝙣𝙤𝙪𝙫𝙚𝙡𝙡𝙚]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCl7fKlIAdBRYtsxM3DTF2BAaXk7zTM9whUsJiQM_Ksb8s?e=H4CorQ", tipo: "gs-prefix" },
                             { titulo: "H003 Erreur 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/ERHYDngXgBFDgeqLQ8R6tBkBcaciIlDA1hlXOLp4GUk5Jw?e=PpCxtv", tipo: "r-prefix" }
                         ]
@@ -516,7 +423,6 @@
                     {
                         nombre: "Türen",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR039 Syngo Relés – Benutzerhandbuch – Anhang v.00 [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAJFf1PpBH2TolVl6JumShMAUkspwEkvfzBz0dbkolUGhw?e=TaeMcd", tipo: "gs-prefix" },
                             { titulo: "H001 Reveco-GO Türgrößenanzeige mit mechanischer Verriegelung V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EfyT1ARLuO9Mo3uqVQd3kYMBRqkLgoxhMPU-fNB388DB8g?e=FhoJxt", tipo: "r-prefix" }
                         ]
@@ -524,46 +430,26 @@
                     {
                         nombre: "EcoGo",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR033 ECOGOTOOLS-KURZANLEITUNG – WARTUNG DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAqrqYIKhQwTL19_IFxB6RXAQy0-a8m9zZztICvM-rFdOE?e=q3jbYJ", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR032 ECOGOTOOLS-KURZANLEITUNG – ERSTE SCHRITTE DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD30VKkCrGbSILu2hb1MSY0AX439RiJJctt4Qo2LdIpuLU?e=UbUiPv", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR031 EcoGOTools montagephase DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCp9tryfubWRb_y_VbNagPUAYrX4F2u_hpBC_84a0BR2iw?e=h6ctmy", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR028 Errors 06.18.06-17-20 EcoDrive V00 [𝙖𝙠𝙩𝙪𝙖𝙡𝙞𝙨𝙞𝙚𝙧𝙩]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDnBWfANkcsQL4kT3rnoPQ7ASku00W0eFP65n1hmi9DR30?e=tnHD4b", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR022 LOB board Konfiguration [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAgUUa0pngOT6mNRbagfdBhAaIoY6W3nioqsopsPC86QPg?e=ZVCl2X", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR021 Selcom Midi Supra V2 [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBo0HFq67uiTb7ST_ezGCD6AXCaMWnHun1EJKRIb-lihRk?e=y1VhG3", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR019 Fermator VF7+Relay [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAVRnwnD3HpTZ8VpP_ItK-fAcpBZNV9LUl48K0lGhgNdCs?e=N9eeGk", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR017 Fermator VF5+ [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDq5VIPiZBSTrg7sIBuXXECAa1HucibduEUXDCCAHTTIog?e=zac2hP", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR016 Fermator ECC [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAl5LtvS2RfSK-XD-E8es_XATapK57ZvJrw4tArmiUiCj8?e=nC7SVp", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR012 Konfiguration Duplex, Triplex, Quadruplex with VC [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBMu8WW2f-SSay7FP-VgqQ0ARM-6T1FrD27eBmPjwy-RTw?e=Qc9h6x", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR011 Erstellen von Audio nachrichten [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDf_P844HTwQ603HfH_6L6zAdoNqEt4i7n4EdD378-CJmg?e=522TBa", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR010 Bremswege einstellen mit EcoDrive inverter [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQB8GwO42d6cSptbj-M9RvFiATAlJv4syHwmlKYPELZKeoY?e=MkFUhK", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR009 console licence upgrade [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD--j6i7Hm1S5aE7oIVHOhcAadNEra_owFwOVLWkMcN3-w?e=ngD7D0", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR008 Konfiguration Muxcan [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQAB8MzviI3PT5HqIzWqIeAnAXoB-i94Izlj1tYCdloxdAU?e=Wz7IVE", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR006 Akustische Signale [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBfbIqLTPVnRJD_PofdTD-DAXipA3_v145io9w8Skrusww?e=C3tLd1", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR005 Buskommunikation Prüfen [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDORss1thzGT6C7oSSSE9s2AZJ7ep6RsQtis4bBTJKmosw?e=k5q5iy", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR004 ADI [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCrfW9g16XeT5vFKM79_xbwAaeSt0jCOZ_iXdkYHsae3gY?e=GJJ2Ol", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR003 Sab EcoGO [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCrQxUQA8wnQ7_tcKWu88Y3AYDF_vapHysrpKdlXgLDDZk?e=0070fK", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR002 TFT Editor [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMttgW2zEGQbBD2B7UT462AYJOmR9HrcEW8cfrRng2QQw?e=S2VtYY", tipo: "gs-prefix" },
                             { titulo: "GR001 Zusätzliche magnete des EcoGO ortugssystems V07", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBG45HkjQy1SaD-1ekGrirgAcL3Rvv692xIU93v5G8iBMA?e=fecYVi", tipo: "" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR000 ecoGO Spannungsbereich einstellen V00 DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBxQlqFyhVxS74f8hSvUHXRAS-oUTJnGVU5TxDVHDcqp-I?e=tIgMiP", tipo: "gs-prefix" },
                             { titulo: "H000 ecoGO Montagekontrolle V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EaxvL5PitDtDtKsMHQ9msxoBh-ucLSXjwfXW3T69SKLMaw?e=mjdyD1", tipo: "r-prefix" },
                             { titulo: "V011 - Befestigungen und Positionierungsverbindungen", url: "https://mpascensores.sharepoint.com/:v:/s/TechnicalServiceComunications/IQD8qjsa_aYIQ7tH5ATegxBkAa0pwmkgwAsdmeKU6ewvoNM?e=aJUjY7", tipo: "y-prefix" },
@@ -577,7 +463,6 @@
                     {
                         nombre: "Allgemein Elektrisch",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR014 Parameter Hilfe Gearless Motoren [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDFGoRbV_pcSKK6QguSaVflAetUOoMK-8xpq2qucIywNnU?e=doWMX7", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
@@ -585,7 +470,6 @@
                     {
                         nombre: "Allgemeine Mechanik",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR003 Sab EcoGO [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQBrbJAU81SaRrbYbGZX10YPATHTDdAXCGkFpmD6hMstcQc?e=9jV5Er", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
@@ -593,18 +477,14 @@
                     {
                         nombre: "Microbasic",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR014 Parameter Hilfe Gearless Motoren [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDFGoRbV_pcSKK6QguSaVflAetUOoMK-8xpq2qucIywNnU?e=doWMX7", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQCMHRUcgDbLSL-4QrmKhcAvAdi-xZ081j_Yq8gkqjFHJPc?e=YHj4Tx", tipo: "gs-prefix" }
                         ]
                     },
                     {
                         nombre: "Via Serie",
                         guias: [
-                            // Añadido: 2026-09-14
                             { titulo: "GR014 Parameter Hilfe Gearless Motoren [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQDFGoRbV_pcSKK6QguSaVflAetUOoMK-8xpq2qucIywNnU?e=doWMX7", tipo: "gs-prefix" },
-                            // Añadido: 2026-09-14
                             { titulo: "GR029 AUSTAUSCH EINES EMT-2-DISPLAYS GEGEN EIN TFT-043 (DMG) DE [𝙣𝙚𝙪]", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/IQD0J0Y7o6vXQLodFZ5HnVXqAco1v_NaI9nugNcq5h2A2lg?e=Pjqx8n", tipo: "gs-prefix" },
                             { titulo: "H003 Fehler 51 3VF-MAC DSP V00", url: "https://mpascensores.sharepoint.com/:b:/s/TechnicalServiceComunications/EYnQEuAuNiZMiZArLKetEUoBEUGuJKA_MOQjoonop-eAQw?e=IgApYR", tipo: "r-prefix" }
                         ]
@@ -621,152 +501,210 @@
             }
         ];
 
-        function generarHTML() {
+        function getPrefixStyles(tipo) {
+            switch (tipo) {
+                case 'r-prefix': return 'bg-red-300 hover:bg-red-400 text-slate-900 border-red-400';
+                case 'y-prefix': return 'bg-yellow-200 hover:bg-yellow-300 text-slate-900 border-yellow-300';
+                case 'ys-prefix': return 'bg-yellow-300 hover:bg-yellow-400 text-slate-900 border-yellow-400';
+                case 'gs-prefix': return 'bg-blue-200 hover:bg-blue-300 text-slate-900 border-blue-300';
+                case 'rs-prefix': return 'bg-red-400 hover:bg-red-500 text-white border-red-500';
+                case 'g-prefix': return 'bg-green-300 hover:bg-green-400 text-slate-900 border-green-400';
+                default: return 'bg-green-200 hover:bg-green-300 text-slate-900 border-green-300'; // Color por defecto (Verde suave)
+            }
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;'
+            }[tag]));
+        }
+
+        function highlightText(text, query) {
+            if (!query) return escapeHTML(text);
+            const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+            const parts = text.split(regex);
+            
+            return parts.map(part => {
+                if (part.toLowerCase() === query.toLowerCase()) {
+                    return `<mark class="bg-yellow-300 text-black font-bold px-1 rounded">${escapeHTML(part)}</mark>`;
+                }
+                return escapeHTML(part);
+            }).join('');
+        }
+
+        function generarHTML(datos, query = '') {
             const container = document.getElementById('guides-container');
-            let html = '';
+            
+            // Estado vacío si no hay resultados
+            if (datos.length === 0) {
+                container.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-48 text-center text-slate-500">
+                        <svg class="w-16 h-16 mb-4 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        <p class="text-lg font-medium">No guides found</p>
+                        <p class="text-sm">Try using different search terms.</p>
+                    </div>`;
+                return;
+            }
 
-            baseDeDatos.forEach(seccionIdioma => {
+            let html = '<div class="space-y-4">';
+            const isOpen = query.length >= 2; // Auto-abrir si hay búsqueda
+
+            datos.forEach((seccionIdioma, indexIdioma) => {
+                const langId = `lang-${indexIdioma}`;
+                
                 html += `
-                <div class="index-item ${seccionIdioma.claseColor}" onclick="toggleSubIndex(this)">
-                    <span>${seccionIdioma.idioma}</span>
-                    <img src="https://flagcdn.com/w40/${seccionIdioma.bandera}.png" alt="Bandera de ${seccionIdioma.idioma}">
-                </div>
-                <div class="sub-index">`;
+                <div class="mb-3">
+                    <button class="accordion-btn w-full flex items-center justify-between bg-slate-300 hover:bg-slate-400 transition-colors p-4 rounded-xl shadow-sm text-lg font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-500 outline-none ${isOpen ? 'is-expanded' : ''}" aria-expanded="${isOpen}" aria-controls="${langId}">
+                        <div class="flex items-center gap-3">
+                            <img src="https://flagcdn.com/w40/${seccionIdioma.bandera}.png" alt="Bandera" class="w-8 h-6 object-cover rounded shadow-sm">
+                            <span>${escapeHTML(seccionIdioma.idioma)}</span>
+                        </div>
+                        <svg class="chevron w-5 h-5 text-slate-700 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                    
+                    <div id="${langId}" class="accordion-content ${isOpen ? 'is-open' : ''}">
+                        <div class="accordion-inner">
+                            <div class="pt-3 pb-1 space-y-3 px-1">`;
 
-                seccionIdioma.categorias.forEach(categoria => {
+                seccionIdioma.categorias.forEach((categoria, indexCat) => {
+                    const catId = `cat-${indexIdioma}-${indexCat}`;
+                    
                     html += `
-                    <div class="sub-item" onclick="toggleSubIndex(this)">${categoria.nombre}</div>
-                    <div class="sub-index">`;
+                        <div class="mb-2">
+                            <button class="accordion-btn w-full flex items-center justify-between bg-slate-200 hover:bg-slate-300 shadow-sm transition-colors p-3 rounded-lg text-base font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 outline-none ${isOpen ? 'is-expanded' : ''}" aria-expanded="${isOpen}" aria-controls="${catId}">
+                                <span class="text-left break-words min-w-0">${escapeHTML(categoria.nombre)}</span>
+                                <svg class="chevron w-4 h-4 text-slate-600 shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                            
+                            <div id="${catId}" class="accordion-content ${isOpen ? 'is-open' : ''}">
+                                <div class="accordion-inner">
+                                    <div class="pt-2 pb-1 space-y-2 px-1">`;
 
                     categoria.guias.forEach(guia => {
-                        const claseTipo = guia.tipo ? ` ${guia.tipo}` : '';
+                        const bgClasses = getPrefixStyles(guia.tipo);
+                        const highlightedTitle = highlightText(guia.titulo, query);
+                        
                         html += `
-                        <div class="sub-item third-level${claseTipo}">
-                            <a href="${guia.url}" target="_blank">${guia.titulo}</a>
-                        </div>`;
+                                        <a href="${escapeHTML(guia.url)}" target="_blank" rel="noopener noreferrer" 
+                                           class="group flex items-start gap-3 p-3 rounded-lg transition-all hover:-translate-y-[1px] hover:shadow-md text-sm border shadow-sm ${bgClasses} focus:outline-none focus:ring-2 focus:ring-brand-light outline-none w-full box-border">
+                                            <svg class="w-4 h-4 mt-0.5 shrink-0 opacity-40 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                                            <span class="flex-1 font-medium leading-relaxed min-w-0 break-words">${highlightedTitle}</span>
+                                        </a>`;
                     });
 
-                    html += `</div>`;
+                    html += `
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
                 });
 
-                html += `</div>`;
+                html += `
+                            </div>
+                        </div>
+                    </div>
+                </div>`;
             });
 
+            html += '</div>';
             container.innerHTML = html;
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            generarHTML();
+        function filterData(query) {
+            if (!query || query.length < 2) return baseDeDatos;
 
-            document.querySelectorAll('.third-level').forEach(item => {
-                item.setAttribute('data-original', item.innerHTML);
-            });
+            const lowerQuery = query.toLowerCase();
+            const result = [];
 
-            document.getElementById('searchInput').addEventListener('input', function () {
-                const filter = this.value.toLowerCase();
-                const guides = document.querySelectorAll('.third-level');
-                const subItems = document.querySelectorAll('.sub-item:not(.third-level)');
-                const subIndices = document.querySelectorAll('.sub-index');
+            baseDeDatos.forEach(idioma => {
+                const matchedCategorias = [];
+                
+                idioma.categorias.forEach(cat => {
+                    const matchedGuias = cat.guias.filter(g => g.titulo.toLowerCase().includes(lowerQuery));
+                    if (matchedGuias.length > 0) {
+                        matchedCategorias.push({ ...cat, guias: matchedGuias });
+                    }
+                });
 
-                if (filter.length < 2) {
-                    guides.forEach(guide => {
-                        guide.style.display = ''; 
-                        guide.innerHTML = guide.getAttribute('data-original');
-                    });
-                    subIndices.forEach(subIndex => subIndex.style.display = '');
-                    subItems.forEach(subItem => {
-                        subItem.style.display = '';
-                        subItem.classList.remove('open');
-                    });
-                    document.querySelectorAll('.index-item').forEach(indexItem => {
-                        indexItem.style.display = '';
-                        indexItem.classList.remove('open');
-                    });
-                    return;
+                if (matchedCategorias.length > 0) {
+                    result.push({ ...idioma, categorias: matchedCategorias });
                 }
+            });
 
-                const highlightText = (element, query) => {
-                    const originalHTML = element.getAttribute('data-original');
-                    const tempElement = document.createElement('div');
-                    tempElement.innerHTML = originalHTML;
+            return result;
+        }
 
-                    const walk = (node) => {
-                        if (node.nodeType === Node.TEXT_NODE) {
-                            const text = node.nodeValue;
-                            const regex = new RegExp(`(${query})`, 'gi');
-                            const highlightedText = text.replace(regex, '<mark>$1</mark>');
-                            const wrapper = document.createElement('span');
-                            wrapper.innerHTML = highlightedText;
-                            node.replaceWith(wrapper);
-                        } else if (node.nodeType === Node.ELEMENT_NODE) {
-                            Array.from(node.childNodes).forEach(walk);
-                        }
-                    };
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const clearSearchBtn = document.getElementById('clearSearchBtn');
+            const container = document.getElementById('guides-container');
+            let debounceTimer;
 
-                    Array.from(tempElement.childNodes).forEach(walk);
-                    element.innerHTML = tempElement.innerHTML;
-                };
+            // Renderizar estado inicial
+            generarHTML(baseDeDatos);
 
-                guides.forEach(guide => {
-                    const text = guide.textContent.toLowerCase();
-                    if (text.includes(filter)) {
-                        guide.style.display = 'block';
-                        highlightText(guide, filter);
+            // Búsqueda con Debounce
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.trim();
+                
+                // Mostrar/Ocultar botón de limpiar
+                clearSearchBtn.classList.toggle('hidden', query.length === 0);
+
+                clearTimeout(debounceTimer);
+                debounceTimer = setTimeout(() => {
+                    const filtered = filterData(query);
+                    generarHTML(filtered, query);
+                }, 250);
+            });
+
+            // Acción del botón Limpiar Búsqueda
+            clearSearchBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                clearSearchBtn.classList.add('hidden');
+                generarHTML(baseDeDatos);
+                searchInput.focus();
+            });
+
+            // Delegación de Eventos para los Acordeones (Rendimiento máximo)
+            container.addEventListener('click', (e) => {
+                const btn = e.target.closest('.accordion-btn');
+                if (!btn) return;
+
+                const targetId = btn.getAttribute('aria-controls');
+                const content = document.getElementById(targetId);
+                
+                if (content) {
+                    const isOpen = content.classList.contains('is-open');
+                    
+                    if (isOpen) {
+                        content.classList.remove('is-open');
+                        btn.classList.remove('is-expanded');
+                        btn.setAttribute('aria-expanded', 'false');
                     } else {
-                        guide.style.display = 'none';
-                        guide.innerHTML = guide.getAttribute('data-original');
+                        content.classList.add('is-open');
+                        btn.classList.add('is-expanded');
+                        btn.setAttribute('aria-expanded', 'true');
                     }
-                });
+                }
+            });
 
-                subItems.forEach(subItem => {
-                    const subIndex = subItem.nextElementSibling;
-                    if (subIndex && subIndex.classList.contains('sub-index')) {
-                        const hasVisibleGuides = Array.from(subIndex.querySelectorAll('.third-level')).some(
-                            guide => guide.style.display === 'block'
-                        );
-                        if (hasVisibleGuides) {
-                            subItem.style.display = 'block';
-                            subIndex.style.display = 'block';
-                        } else {
-                            subItem.style.display = 'none';
-                            subIndex.style.display = 'none';
-                        }
-                    }
-                });
-
-                document.querySelectorAll('.index-item').forEach(indexItem => {
-                    const nextElement = indexItem.nextElementSibling;
-                    if (nextElement && nextElement.classList.contains('sub-index')) {
-                        const hasVisibleSubItems = Array.from(nextElement.querySelectorAll('.sub-item:not(.third-level)')).some(
-                            subItem => subItem.style.display === 'block'
-                        );
-                        if (hasVisibleSubItems) {
-                            indexItem.style.display = 'flex';
-                            indexItem.classList.add('open');
-                            nextElement.style.display = 'block';
-                        } else {
-                            indexItem.style.display = 'flex';
-                            indexItem.classList.remove('open');
-                            nextElement.style.display = 'none';
-                        }
-                    }
+            // Controles Globales (Expandir/Contraer)
+            document.getElementById('expandAllBtn').addEventListener('click', () => {
+                document.querySelectorAll('.accordion-content').forEach(c => c.classList.add('is-open'));
+                document.querySelectorAll('.accordion-btn').forEach(b => {
+                    b.classList.add('is-expanded');
+                    b.setAttribute('aria-expanded', 'true');
                 });
             });
 
-            document.querySelectorAll('.third-level').forEach(div => {
-                div.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    const link = div.querySelector('a').href;
-                    window.open(link, '_blank');
-                });
-            });
-            document.querySelectorAll('.third-level a').forEach(a => {
-                a.addEventListener('click', (event) => {
-                    event.stopPropagation();
+            document.getElementById('collapseAllBtn').addEventListener('click', () => {
+                document.querySelectorAll('.accordion-content').forEach(c => c.classList.remove('is-open'));
+                document.querySelectorAll('.accordion-btn').forEach(b => {
+                    b.classList.remove('is-expanded');
+                    b.setAttribute('aria-expanded', 'false');
                 });
             });
         });
     </script>
 </body>
-
 </html>
